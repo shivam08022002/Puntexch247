@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store'; // Ensure the Redux store is properly imported
 import FooterMenu from './components/FooterMenu';
 import Header from './components/Header';
 import Navigation from './components/Navigation';
 import SportPage from './pages/SportPage';
-import InplayPage from './pages/InplayPage'; // Import the InplayPage
+import InplayPage from './pages/InplayPage';
 import CasinoPage from './pages/CasinoPage';
 import HomePage from './pages/HomePage';
 import Footer from './components/Footer';
@@ -28,28 +30,31 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <div className="app">
-        <Header 
-          isLoginOpen={isLoginOpen}
-          openLoginModal={openLoginModal}
-          closeLoginModal={closeLoginModal}
-          isSidebarOpen={isSidebarOpen}
-          setSidebarOpen={setSidebarOpen}
-        />
-        <Navigation />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/sports/:sportName" element={<SportPage />} />
-          <Route path="/inplay" element={<InplayPage />} /> {/* Add the route for InplayPage */}
-          <Route path="/casino" element={<CasinoPage />} /> {/* Add Casino route */}
-          <Route path="/match/:id" element={<MatchDetailsPage />} />
-        </Routes>
-        <Footer />
-        <FooterMenu openLoginModal={openLoginModal} />
-        {isLoginOpen && <LoginPage closeLogin={closeLoginModal} />}
-      </div>
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <div className="app">
+          <Header
+            isLoginOpen={isLoginOpen}
+            openLoginModal={openLoginModal}
+            closeLoginModal={closeLoginModal}
+            isSidebarOpen={isSidebarOpen}
+            setSidebarOpen={setSidebarOpen}
+          />
+          <Navigation />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/sports/:sportName" element={<SportPage />} />
+            <Route path="/inplay" element={<InplayPage />} />
+            <Route path="/casino" element={<CasinoPage />} />
+            <Route path="/match/:id" element={<MatchDetailsPage />} />
+            <Route path="/login" element={<LoginPage closeLogin={closeLoginModal} />} />
+          </Routes>
+          <Footer />
+          <FooterMenu openLoginModal={openLoginModal} />
+        </div>
+      </Router>
+    </Provider>
   );
 }
+
 export default App;
