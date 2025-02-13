@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { httpHelpers } from "../services/httpHelpers";
 import {
   FaClock,
   FaBaseballBall,
@@ -17,10 +18,15 @@ import {
 } from 'react-icons/fa';
 import './Navigation.css';
 
-const Navigation = () => {
+const Navigation = ({ logout }) => {
+  const [selectedSport, setSelectedSport] = useState('cricket');
+  const [matches, setMatches] = useState([]);
+  const api = httpHelpers();
+  const getLiveGames = "/gamma/getAllMatches?sportType=";
+
   const sports = [
     { name: 'Inplay', icon: <FaClock /> },
-    { name: 'Cricket', icon: <FaBaseballBall /> },
+    { name: 'Cricket', icon: <FaBaseballBall/> },
     { name: 'Soccer', icon: <FaFutbol /> },
     { name: 'Tennis', icon: <FaTableTennis /> },
     { name: 'Basketball', icon: <FaBasketballBall /> },
@@ -33,6 +39,24 @@ const Navigation = () => {
     { name: 'Esports', icon: <FaGamepad /> },
     { name: 'Casino', icon: <FaDice /> },
   ];
+
+  const handleSportClick = (sport) => {
+    setSelectedSport(sport);
+  };
+
+  useEffect(() => {
+    const fetchMatches = async () => {
+      try {
+        const response = await api.get(`${getLiveGames}${selectedSport}&matchStatus=LIVE`);
+        setMatches(response?.data?.length > 0 ? response.data : []);
+      } catch (err) {
+        console.error("Error fetching live matches:", err);
+        if (err?.response?.status === 401 && logout) logout();
+        setMatches([]);
+      }
+    };
+    fetchMatches();
+  }, [selectedSport, api, logout]);
 
   return (
     <nav className="navigation">
@@ -47,6 +71,7 @@ const Navigation = () => {
                 ? '/casino'
                 : `/sports/${sport.name.toLowerCase().replace(/\s+/g, '-')}`}
               className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+              onClick={() => handleSportClick(sport.name.toLowerCase())}
             >
               <span className="nav-icon">{sport.icon}</span>
               <span className="nav-text">{sport.name}</span>

@@ -1,12 +1,14 @@
 /* InplayPage Base Styles */
 .inplay-page {
-    padding: 5px;
+    padding: 8px;
+    padding-top: 0%;
     background: linear-gradient(45deg, #000000, #3e2c2c); /* Gradient background */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-family: 'Arial', sans-serif;
+    gap: 8px;
 }
 
 

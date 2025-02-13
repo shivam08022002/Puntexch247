@@ -52,6 +52,7 @@ class TokenService {
     console.log(userId);
     return localStorage.getItem("user_NotPopup");
   }
-}
 
-export default new TokenService();
+}
+const tokenService = new TokenService();
+export default tokenService;

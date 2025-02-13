@@ -1,46 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import MatchTable from './MatchTable';
 import './LiveMatches.css';
+import { httpHelpers } from "../services/httpHelpers";
 
-const LiveMatches = () => {
-  const liveMatchesData = {
-    cricket: [
-      {
-        tournament: "IPL 2024",
-        teams: "Mumbai Indians v Chennai Super Kings",
-        date: "LIVE",
-        time: "85.5 Ov",
-        odds: {
-          back1: "1.51",
-          lay1: "1.52",
-          back2: "2.80",
-          lay2: "2.82",
-          back3: "4.90",
-          lay3: "4.95"
-        },
-        minBet: "100",
-        maxBet: "100K"
+const LiveMatches = ({ logout = () => {} }) => {
+  const [matches, setMatches] = useState({});
+  const api = httpHelpers();
+  const getLiveGames = "/gamma/getAllMatches?sportType=";
+  const sports = ['cricket', 'soccer', 'tennis', 'basketball', 'volleyball'];
+
+  const fetchLiveMatches = async () => {
+    const updatedMatches = {};
+    for (const sport of sports) {
+      try {
+        const response = await api.get(`${getLiveGames}${sport}&matchStatus=LIVE`);
+        updatedMatches[sport] = response?.data?.length > 0 ? response.data : [];
+      } catch (err) {
+        console.error(`Error fetching live matches for ${sport}:`, err);
+        if (err?.response?.status === 401) logout();
+        updatedMatches[sport] = [];
       }
-    ],
-    soccer: [
-      {
-        tournament: "Premier League",
-        teams: "Arsenal v Manchester City",
-        date: "LIVE",
-        time: "65'",
-        odds: {
-          back1: "2.10",
-          lay1: "2.12",
-          back2: "3.40",
-          lay2: "3.45",
-          back3: "2.90",
-          lay3: "2.95"
-        },
-        minBet: "100",
-        maxBet: "50K"
-      }
-    ]
+    }
+    setMatches(updatedMatches);
   };
+
+  useEffect(() => {
+    fetchLiveMatches();
+  }, []);
 
   return (
     <div className="live-matches-section">
@@ -51,20 +37,27 @@ const LiveMatches = () => {
           LIVE
         </span>
       </div>
-      {Object.entries(liveMatchesData).map(([sport, matches]) => (
-        <div key={sport} className="sport-matches">
-          <MatchTable
-            sport={{
-              name: sport,
-              displayName: sport.charAt(0).toUpperCase() + sport.slice(1),
-              count: matches.length.toString()
-            }}
-            matches={matches}
-          />
-        </div>
+      {sports.map((sport) => (
+        matches[sport] && matches[sport].length > 0 ? (
+          <div key={sport} className="sport-matches">
+            <MatchTable
+              sport={{
+                name: sport,
+                displayName: sport.charAt(0).toUpperCase() + sport.slice(1),
+                count: matches[sport]?.length.toString() || "0"
+              }}
+              matches={matches[sport] || []}
+            />
+          </div>
+        ) : null
       ))}
+      {Object.values(matches).every(sportMatches => sportMatches.length === 0) && (
+        <p style={{ textAlign: 'center', color: 'White', fontSize: '18px', marginTop: '20px' }}>
+          No live matches are currently available
+        </p>
+      )}
     </div>
   );
 };
 
-export default LiveMatches; 
+export default LiveMatches;

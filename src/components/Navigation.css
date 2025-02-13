@@ -41,13 +41,13 @@
   font-weight: 500;
   transition: all 0.3s ease-in-out;
   background: rgba(255, 255, 255, 0.1); /* Subtle transparent background */
-  transform: translateY(0); /* Add base transform state */
+  transform: translateY(0); 
 }
 
 .nav-link:hover {
   background: linear-gradient(45deg, #ff6b00, #ff4500); /* Attractive gradient */
   color: #ffffff;
-  transform: translateY(-2px) scale(1.05); /* Subtle lift and scale */
+/* Subtle lift and scale */
   box-shadow: 0 4px 8px rgba(255, 69, 0, 0.4); /* Subtle shadow */
 }
 

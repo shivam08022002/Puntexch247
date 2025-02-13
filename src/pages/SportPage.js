@@ -13,37 +13,37 @@ const SportPage = () => {
     cricket: {
       title: "Cricket Live",
       tagline: "Experience the Thrill of the Game",
-      background: "linear-gradient(45deg, #ff4444, #ff6b6b)",
-      icon: "🏏",
-      bgImage: "https://www.cricbuzz.com/cricket-series/10000/indian-premier-league-2025/ipl-2025-schedule-fixtures-teams-squads-points-table-live-updates"
+      // background: "linear-gradient(45deg, #ff4444, #ff6b6b)",
+      // icon: "🏏",
+      bgImage: "https://t3.ftcdn.net/jpg/08/41/19/60/360_F_841196054_kcxsM3eaUWER06YEGygooW46zyl4aqj0.jpg"
     },
     soccer: {
       title: "Soccer Matches",
       tagline: "The Beautiful Game Awaits",
-      background: "linear-gradient(45deg, #4444ff, #6b6bff)",
-      icon: "⚽",
-      bgImage: "https://www.cricbuzz.com/cricket-series/10000/indian-premier-league-2025/ipl-2025-schedule-fixtures-teams-squads-points-table-live-updates"
+      // background: "linear-gradient(45deg, #4444ff, #6b6bff)",
+      // icon: "⚽",
+      bgImage: "https://www.shutterstock.com/image-illustration/abstract-silhouette-football-soccer-player-600nw-2293156091.jpg"
     },
     tennis: {
       title: "Tennis Live",
       tagline: "Serve, Rally, Score",
-      background: "linear-gradient(45deg, #44ff44, #6bff6b)",
-        icon: "🎾",
-      bgImage: "https://www.cricbuzz.com/cricket-series/10000/indian-premier-league-2025/ipl-2025-schedule-fixtures-teams-squads-points-table-live-updates"
+      // background: "linear-gradient(45deg, #44ff44, #6bff6b)",
+        // icon: "🎾",
+      bgImage: "https://www.shutterstock.com/image-vector/abstract-silhouette-tennis-player-on-260nw-2170057791.jpg"
     },
     basketball: {
       title: "Basketball Live",
       tagline: "Feel the Rhythm of the Game",
-      background: "linear-gradient(45deg, #ff8c00, #ffa500)",
-        icon: "🏀",
-      bgImage: "https://www.cricbuzz.com/cricket-series/10000/indian-premier-league-2025/ipl-2025-schedule-fixtures-teams-squads-points-table-live-updates"
+      // background: "linear-gradient(45deg, #ff8c00, #ffa500)",
+        // icon: "🏀",
+      bgImage: "https://t4.ftcdn.net/jpg/04/88/65/81/360_F_488658114_B8vBzGIbzYY9EtmCMqdl5ZMTucUsvkGs.jpg"
     },
     volleyball: {
       title: "Volleyball Live",
       tagline: "Spike Your Way to Victory",
-      background: "linear-gradient(45deg, #9932cc, #ba55d3)",
-      icon: "🏐",
-      bgImage: "https://www.cricbuzz.com/cricket-series/10000/indian-premier-league-2025/ipl-2025-schedule-fixtures-teams-squads-points-table-live-updates"
+      // background: "linear-gradient(45deg, #9932cc, #ba55d3)",
+      // icon: "🏐",
+      bgImage: "https://www.shutterstock.com/image-vector/abstract-silhouette-volleyball-player-on-260nw-2181473969.jpg"
     }
   };
 
@@ -154,7 +154,7 @@ const SportPage = () => {
     <div className="sport-page">
       <div 
         className="sport-banner"
-        style={{ background: currentBanner.background }}
+        style={{ backgroundImage: `url(${currentBanner.bgImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}  
       >
         <div className="banner-content">
           <div className="banner-icon">{currentBanner.icon}</div>

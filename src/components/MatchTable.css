@@ -7,17 +7,18 @@ body, html {
 }
 
 /* Hover effect on the sport section */
-.sport-section:hover {
+/* .sport-section:hover {
   padding: 3px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
   transform: translateY(-1px);
-}
+} */
 
 /* Header styling */
 .sport-header {
-  background: linear-gradient(135deg, #3f3f9ef2 0%, #17254d 100%);
+  background: linear-gradient(135deg, #3d3d9ef2 0%, #3659ba 100%);
   padding: 12px 15px;
-  border-radius: 10px;
+  width: 100%;
+  border-radius: 10px ;
   /* margin: 0px 5px 0px 5px; */
   /* margin: 5px 5px 5px 5px; */
   /* gap: 10px; */
@@ -149,8 +150,10 @@ body, html {
   .sport-header {
     flex-direction:row;
     padding: 8px 10px;
+    border-radius: 5px 5px 0 0;
+
     /* gap: 10px; */
-    margin: 2px;
+    /* margin: 2px; */
   }
 
   .sport-info {

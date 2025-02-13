@@ -1,4 +1,4 @@
-import authHeader from "./data-service"
+// import authHeader from "./data-service"
 import TokenService from "./token-service";
 
 export const httpHelper = () => {
@@ -8,7 +8,6 @@ export const httpHelper = () => {
 			role = "admin";
 		}
 		const user = TokenService.getUser(role);
-
   		//console.log('helper', user.accessToken)
 		const defaultMethod = "GET"
 		const defaultHeaders = {

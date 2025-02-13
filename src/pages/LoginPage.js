@@ -6,7 +6,7 @@ import { login, logout } from "../actions/auth";
 import TokenService from "../services/token-service";
 import { httpHelpers } from "../services/httpHelpers";
 
-const LoginPage = ({ closeLogin }) => {
+const LoginPage = ({ closeLogin, onLoginSuccess }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [captchaText, setCaptchaText] = useState('');
@@ -103,6 +103,8 @@ const LoginPage = ({ closeLogin }) => {
                     } else if (data.data.accountStatus.includes("ACTIVE")) {
                         TokenService.setUser(data.data);
                         await fetchNotificationMessage();
+                        onLoginSuccess();
+                        window.location.reload(); // Call this after successful login
                     }
                     break;
                     
@@ -192,4 +194,5 @@ const LoginPage = ({ closeLogin }) => {
         </div>
     );
 };
+
 export default LoginPage;

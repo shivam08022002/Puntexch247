@@ -231,6 +231,15 @@ const MatchDetailsPage = () => {
       <div className="match-details-content">
         <div className={`match-details-main ${selectedTab === 'scoreboard' ? 'active' : ''}`}>
           <div>
+            
+          <div className="graph-section">
+                <div className="graph-team">Graph section</div>
+                <div className="graph-line">
+                  <div className="graph-dot" style={{ left: '60%' }}></div>
+                </div>
+                <div className="graph-team"></div>
+              </div>
+            
             <div className="match-header">
               <div className="match-time">
                 <span>{matchData.time}</span>
@@ -240,7 +249,7 @@ const MatchDetailsPage = () => {
                 <h1>{matchData.team1} <span> </span> {matchData.team2}</h1>
               </div>
             </div>
-
+            
             <div className="market-sections">
               <div className="market-section">
                 <div className="market-header">
@@ -304,14 +313,7 @@ const MatchDetailsPage = () => {
 
         <div className="tv-screen-tab">
           <div className={`live-tv-section ${selectedTab === 'tv' ? 'active' : ''}`}>
-            <div className="tv-graph-container">
-              <div className="graph-section">
-                <div className="graph-team">Graph section</div>
-                <div className="graph-line">
-                  <div className="graph-dot" style={{ left: '60%' }}></div>
-                </div>
-                <div className="graph-team"></div>
-              </div>
+             
               <div className="tv-container">
                 <div className="live-tv-header">
                   <FaTv className="tv-icon" />
@@ -325,7 +327,7 @@ const MatchDetailsPage = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            
             
             <div>
               <div className="match-header">
