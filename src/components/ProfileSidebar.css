@@ -8,7 +8,7 @@
     visibility: hidden;
     transition: opacity 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
     z-index: 99999;
-} 
+}
 
 .sidebar-overlay2.visible2 {
     opacity: 1;

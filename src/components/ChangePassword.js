@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import TokenService from "../services/token-service";
 import { changePassword, changePasswordProfile } from "../actions/auth";
 import { clearMessage } from "../actions/message";
@@ -12,7 +12,7 @@ const CricChangePassword = ({ role, logout }) => {
   const [confirmNewPassword, setConfirmNewPassword] = useState("");
   const [error, setError] = useState({});
   let navigate = useNavigate();
-  const { message } = useSelector((state) => state.message);
+  // const { message } = useSelector((state) => state.message);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -74,6 +74,8 @@ const CricChangePassword = ({ role, logout }) => {
         <input type="password" placeholder="Confirm Password" value={confirmNewPassword} onChange={(e) => setConfirmNewPassword(e.target.value)} className={error.confirmNewPassword ? "input-error" : ""} />
         <small>{error.confirmNewPassword}</small>
         <button onClick={handleChangePassword}>Change Password</button>
+        {/* {{message}} */}
+
       </div>
     </div>
   );

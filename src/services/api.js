@@ -10,7 +10,7 @@ const instance = axios.create({
   //baseURL: "https://play.luckyo.in/backend/",
   //  baseURL: "https://game.play247.link/backend/",
   // baseURL: "https://parvatibook.com/backend/",
-  baseURL: "https://play-247.in/backend/",
+  baseURL: "https://nice247.pro/backend/",
   // baseURL: "http://192.168.1.12:8080/",
   headers: {
     "Content-Type": "application/json",

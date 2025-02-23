@@ -1,27 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import MatchTable from '../components/MatchTable';
 import Banner from '../components/Banner';
-import { httpHelpers } from "../services/httpHelpers";
+// import { httpHelpers } from "../services/httpHelpers";
 import './InplayPage.css';
 
 const InplayPage = ({ logout = () => {} }) => {
   const [matches, setMatches] = useState({});
-  const api = httpHelpers();
-  const getLiveGames = "/gamma/getAllMatches?sportType=";
+  // const api = httpHelpers();
+  // const getLiveGames = "/gamma/getAllMatches?sportType=";
   const sports = ['cricket', 'soccer', 'tennis', 'basketball', 'volleyball'];
 
   const fetchLiveMatches = async () => {
     const updatedMatches = {};
-    for (const sport of sports) {
-      try {
-        const response = await api.get(`${getLiveGames}${sport}&matchStatus=LIVE`);
-        updatedMatches[sport] = response?.data?.length > 0 ? response.data : [];
-      } catch (err) {
-        console.error(`Error fetching live matches for ${sport}:`, err);
-        if (err?.response?.status === 401) logout();
-        updatedMatches[sport] = [];
-      }
-    }
+      // try {
+      //   const response = await api.get(`${getLiveGames}${sport}&matchStatus=LIVE`);
+      //   updatedMatches= response?.data?.length > 0 ? response.data : [];
+      // } catch (err) {
+      //   console.error(`Error fetching live matches for ${sport}:`, err);
+      //   if (err?.response?.status === 401) logout();
+      //   updatedMatches= [];
+      // }
+    
     setMatches(updatedMatches);
   };
 
