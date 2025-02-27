@@ -8,14 +8,15 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    
     /* Background Image */
-  
+}
+
+button{
+    -webkit-tap-highlight-color: none !important;
 }
 
 .pushpa-game-window{
     width: 100%;
-    
 }
 
 .pushpa-game-container {
@@ -117,6 +118,9 @@
     border-radius: 0rem;
     height: 85%;
     border: 0 0 0 2px solid #0088cc;
+    max-height: 350px;
+    max-width: 100%;
+    margin: 0 0 0 0; 
 }
 
 @keyframes scroll {
@@ -159,18 +163,18 @@
 
 
 .pushpa-waiting-text {
-    position: absolute;
-    /* position: relative; */
-    align-items: flex-start;
-    left: 173px;
-    top: 0px;
+    position: relative;
+    /* left: 170px; */
+    bottom: 30px;
+    /* left: 0; */
     /* bottom: 500px; */
-    color: #c8d1cf;
+    color: #a99d9d;
     font-size: 0.9rem;
     font-weight: 600;
     white-space: nowrap;
-    /* text-transform:lowercase; */
     letter-spacing: 0.2px;
+    display: flex;
+    flex-direction: column;
 }
 
 .pushpa-betting-tabs {
@@ -341,18 +345,18 @@
 }
 
 .cancel {
-    background: #e30404;
-    padding: 0.5rem;
-    border-radius: 0.75rem;
-    height: 70px;
-
-    /* min-height: unset; */
-    border: 2px solid rgb(216, 189, 15);
-    width: auto;
-    transition: all 0.3s ease;
+    background: #CB011A;
+    padding: 0.5px;
+    border-radius: 1.5rem;
+    height: 55px;
+    min-height: unset;
+    border: 2px solid rgba(47, 227, 34, 0.714);
+    box-shadow:none; /* Outer border effect */
+    width: 100%;
     margin-top: 0;
-     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); 
-    display: flex ;
+    display: flex;
+    /* flex-direction: column; */
+    text-align: center;
     align-self: flex-end;
 }
 
@@ -371,6 +375,7 @@
     text-shadow: 1px #000000;
     font-weight: 200;
     text-align: center;
+    bottom:5px;
 }
 
 .pushpa-bet-amount {
@@ -774,7 +779,7 @@ input:checked+.pushpa-toggle-slider:before {
     /* Max height if you want to limit it */
     margin: 0 ;
     /* Center the canvas horizontally */
-    /* border-radius: 1.5rem; */
+    border-radius: 0rem;
     border: 1px solid #535353;
     /* Add border-radius here for the container */
     overflow: hidden;

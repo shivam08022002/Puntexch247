@@ -92,9 +92,7 @@ const handleBetClick = () => {  // Separate function at the same level
       <div className="pushpa-betting-controls">
 
         <div className="pushpa-main-controls">
-        {isBetting && (
-            <div className="pushpa-waiting-text">Waiting for next round</div>
-          )}
+        
 
           <div className="pushpa-amount-control">
             <div className="pushpa-amount-adjuster">
@@ -144,13 +142,20 @@ const handleBetClick = () => {  // Separate function at the same level
               </div>
             </div>
           </div>
-
+          
           <button
             className={`pushpa-bet-button ${isBetting ? 'cancel' : ''}`}
             onClick={handleBetClick}
           >
-            <div className="pushpa-bet-insider">
-            <div className="pushpa-bet-text">{isBetting ? 'CANCEL' : 'BET'}</div>
+            
+            <div className="pushpa-bet-insider" style={{display:"flex",flexDirection:"column"}}>   
+            {isBetting && (
+            <div className="pushpa-waiting-text">Waiting for next round</div>
+          )}   
+            <div className="pushpa-bet-text">{isBetting ? 'CANCEL' : 'BET'}
+              
+            </div>
+           
             {!isBetting && <div className="pushpa-bet-amount">{amount}₹</div>}
           </div>
           </button>

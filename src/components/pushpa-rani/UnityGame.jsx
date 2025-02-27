@@ -130,7 +130,7 @@ export default function UnityGame() {
       }, [isPlaneCrashed, isLoaded]); // Send updated crash state to Unity when it changes
 
       return (
-        <div className="unity-container">
+        <div className="pushpa-unity-container">
           {/* Show a white panel with animation while loading */}
           {isLoading && (
             <div className="loading-screen">

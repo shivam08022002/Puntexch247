@@ -89,9 +89,7 @@ const BettingSection = ({ title }) => {
       <div className="betting-controls">
     
         <div className="main-controls">
-        {isBetting && (
-            <div className="waiting-text">WAITING FOR NEXT ROUND</div>
-          )}
+
    
           <div className="amount-control">
             <div className="amount-adjuster">
@@ -141,12 +139,18 @@ const BettingSection = ({ title }) => {
               </div>
             </div>
           </div>
-
+          {/* {isBetting && (
+            <div className="waiting-text">WAITING FOR NEXT ROUND</div>
+          )} */}
           <button
             className={`bet-button ${isBetting ? 'cancel' : ''}`}
             onClick={handleBetClick}
           >
+
             <div className="bet-text">{isBetting ? 'CANCEL' : 'BET'}</div>
+            {isBetting && (
+            <div className="waiting-text">Waiting for next round</div>
+             )}
             {!isBetting && <div className="bet-amount">{amount}₹</div>}
           </button>
         </div>
