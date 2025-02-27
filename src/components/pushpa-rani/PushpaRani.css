@@ -107,14 +107,14 @@
 /* Game window */
 .pushpa-game-window {
     display: flex;
-    aspect-ratio: 16/13;
-    background-color: #111;
+    aspect-ratio: 16/11;
+    background-color: #090909;
     justify-content: center;
     flex-direction: column;
     align-items:center;
     color: #fff;
     /* margin: rem; */
-    border-radius: 1rem;
+    border-radius: 0rem;
     height: 85%;
     border: 0 0 0 2px solid #0088cc;
 }
@@ -774,11 +774,11 @@ input:checked+.pushpa-toggle-slider:before {
     /* Max height if you want to limit it */
     margin: 0 ;
     /* Center the canvas horizontally */
-    /* border-radius: 1rem; */
+    border-radius: 1.5rem;
+    border: 1px solid #535353;
     /* Add border-radius here for the container */
     overflow: hidden;
     /* Prevent the canvas from overflowing the rounded corners */
-
 }
 
 .pushpa-unity-container canvas {

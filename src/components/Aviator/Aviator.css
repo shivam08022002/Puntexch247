@@ -102,14 +102,14 @@
 /* Game window */
 .game-window {
     display: flex;
-    aspect-ratio: 16/13;
-    background-color: #111;
+    aspect-ratio: 16/11;
+    background-color: #090909;
     justify-content: center;
     flex-direction: column;
     align-items:center;
     color: #fff;
     /* margin: rem; */
-    border-radius: 1rem;
+    border-radius: 0rem;
     height: 85%;
 }
 
@@ -717,12 +717,11 @@ input:checked+.toggle-slider:before {
     /* Max height if you want to limit it */
     margin: 0 ;
     /* Center the canvas horizontally */
-    /* border-radius: 1rem; */
-    /* Add border-radius here for the container */
+    border-radius: 1.5rem;
+    border : 1px solid #535353;
     overflow: hidden;
-    /* Prevent the canvas from overflowing the rounded corners */
-
 }
+
 
 .unity-container canvas {
     width: 100% !important;
