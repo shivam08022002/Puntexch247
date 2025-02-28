@@ -168,6 +168,22 @@
     /* padding: 1.5rem; */
 }
 
+@media screen and (max-width: 750px) {
+    .waiting-text {
+        position: absolute;
+        left: 1/80px;
+        top: 0px;
+        /* bottom: 500px; */
+        color: #a99d9d;
+        font-size: 1.1rem;
+        font-weight: 600;
+        white-space: nowrap;
+        text-transform:none;
+        letter-spacing: 0.5px;
+    }
+}
+
+@media screen and (max-width: 450px) {
 .waiting-text {
     position: absolute;
     left: 1/80px;
@@ -179,11 +195,14 @@
     white-space: nowrap;
     text-transform:none;
     letter-spacing: 0.2px;
+    }
 }
 
 @media screen and (max-width: 350px) {
     .waiting-text {
-        font-size: 0.85rem;
+        font-size: 0.80rem;
+        letter-spacing: 0.1px;
+        font-weight: 600;
     }
     
 }
