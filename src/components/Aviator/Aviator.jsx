@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import UnityGame from './UnityGame'
 import './Aviator.css'
+import { FaHistory } from "react-icons/fa";
+// import { useEffect } from 'react';
 
 const Navbar = () => (
   <div className="navbar-aviator">
@@ -24,21 +26,12 @@ const Multipliers = () => (
       <div className="multiplier" style={{ color: '#f00' }}>1.24x</div>
       <div className="multiplier" style={{ color: '#f0f' }}>9.80x</div>
     </div>
-    {/* <div className="dropdown-history">
-      <svg 
-        width="20" 
-        height="20" 
-        viewBox="0 0 24 24" 
-        fill="none" 
-        stroke="#666666" 
-        strokeWidth="2" 
-        strokeLinecap="round" 
-        strokeLinejoin="round"
-      >
-        <path d="M1 4v6h6"/>
-        <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
-      </svg>
-    </div> */}
+    <div className='histry-container'>
+        <button className="histry-button">
+      <FaHistory className="histry-icon" />
+      <span className="dropdown-arr">▼</span>
+      </button>
+      </div>
   </div>
 );
 
@@ -66,6 +59,10 @@ const BettingSection = ({ title }) => {
   const handleBetClick = () => {
     setIsBetting(!isBetting);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className={`betting-section ${isBetting ? 'betting-active' : ''}`}>

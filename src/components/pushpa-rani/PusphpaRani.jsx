@@ -69,6 +69,9 @@ const handleBetClick = () => {  // Separate function at the same level
   setIsBetting(!isBetting);
 };
 
+useEffect(() => {
+  window.scrollTo(0, 0);
+}, []);
 
   return (
     <div className={`pushpa-betting-section ${isBetting ? 'betting-active' : ''}`}>
