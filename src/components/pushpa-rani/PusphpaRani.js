@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import UnityGame from './UnityGame'
 import './PushpaRani.css'
 import PropTypes from "prop-types"
+import { FaHistory } from "react-icons/fa";
 
 const Navbar = () => (
   <div className="pushpa-navbar-aviator">
@@ -24,6 +25,12 @@ const Multipliers = () => (
       <div className="pushpa-multiplier" style={{ color: '#ff0' }}>1.77x</div>
       <div className="pushpa-multiplier" style={{ color: '#f00' }}>1.24x</div>
       <div className="pushpa-multiplier" style={{ color: '#f0f' }}>9.80x</div>
+      <div className='histry-container'>
+              <button className="histry-button">
+            <FaHistory className="histry-icon" />
+            <span className="dropdown-arr">▼</span>
+            </button>
+            </div>
     </div>
     {/* <div className="pushpa-dropdown-history">
       <svg 
@@ -147,7 +154,7 @@ useEffect(() => {
           </div>
           
           <button
-            className={`pushpa-bet-button ${isBetting ? 'cancel' : ''}`}
+            className={`pushpa-bet-button ${isBetting ? 'pushpa-cancel' : ''}`}
             onClick={handleBetClick}
           >
             

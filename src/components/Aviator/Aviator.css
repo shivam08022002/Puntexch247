@@ -170,17 +170,23 @@
 
 .waiting-text {
     position: absolute;
-    left: 170px;
+    left: 1/80px;
     top: 0px;
     /* bottom: 500px; */
     color: #a99d9d;
     font-size: 0.9rem;
     font-weight: 600;
     white-space: nowrap;
-    text-transform:lowercase;
+    text-transform:none;
     letter-spacing: 0.2px;
 }
 
+@media screen and (max-width: 350px) {
+    .waiting-text {
+        font-size: 0.85rem;
+    }
+    
+}
 .aviator-betting-tabs {
     display: flex;
     justify-content: center;
@@ -320,7 +326,7 @@
 
 }
 
-.bet-button.cancel {
+/* .bet-button.cancel {
     background-color: #dc0000;
     padding: 0.5rem;
     border-radius: 0.75rem;
@@ -330,16 +336,21 @@
     width: auto;
     margin-top: 0;
     align-self: flex-end;
+} */
+.bet-button.cancel {
+    background: #CB011A;
+    padding: 0.5px;
+    border-radius: 1.5rem;
+    height: 60px;
+    min-height: unset;
+    border: 2px solid rgba(233, 115, 37, 0.911);
+    box-shadow:none; /* Outer border effect */
+    width: 100%;
+    margin-top: 0;
+    display: flex;
+    text-align: center;
+    align-self: flex-end;
 }
-
-/* .bet-button.cancel .bet-text {
-    font-size: 1.1rem;
-    /* font-weight: bold; */
-    /* box-shadow: 1px #000000;
-    letter-spacing: 1px;
-    line-height: 1;
-    white-space: nowrap; */
-/* } */
 
 .bet-text {
     color: white;

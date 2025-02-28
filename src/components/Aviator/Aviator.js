@@ -143,11 +143,11 @@ const BettingSection = ({ title }) => {
             className={`bet-button ${isBetting ? 'cancel' : ''}`}
             onClick={handleBetClick}
           >
-
-            <div className="bet-text">{isBetting ? 'CANCEL' : 'BET'}</div>
-            {isBetting && (
-            <div className="waiting-text">Waiting for next round</div>
+              {isBetting && (
+            <div className="waiting-text"> Waiting for next round </div>
              )}
+            <div className="bet-text">{isBetting ? 'CANCEL' : 'BET'}</div>
+          
             {!isBetting && <div className="bet-amount">{amount}₹</div>}
           </button>
         </div>

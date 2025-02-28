@@ -176,7 +176,11 @@ button{
     display: flex;
     flex-direction: column;
 }
-
+@media screen and (max-width: 350px) {
+    .pushpa-waiting-text {
+        font-size: 0.85rem;
+    }
+}
 .pushpa-betting-tabs {
     display: flex;
     justify-content: center;
@@ -341,7 +345,7 @@ button{
     text-shadow: 2px #000000;
 }
 
-.cancel {
+.pushpa-cancel {
     background: #CB011A;
     padding: 0.5px;
     border-radius: 1.5rem;
