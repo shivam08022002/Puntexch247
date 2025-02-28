@@ -73,6 +73,7 @@ const AppContent = () => {
       openLoginModal(); // Redirect to login if not logged in
     }
   };
+ 
 
   useEffect(() => {
     document.title = 'Puntexch247 | Live Sports Betting';
@@ -103,7 +104,7 @@ const AppContent = () => {
       )}
 
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage openLoginModal={openLoginModal} />} />
         <Route path="/sports/:sportName" element={<SportPage />} />
         <Route path="/inplay" element={<InplayPage />} />
         <Route path="/casino" element={<CasinoPage />} />

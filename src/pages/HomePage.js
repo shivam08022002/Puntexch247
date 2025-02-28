@@ -8,7 +8,7 @@ import MarqueeText from '../components/MarqueeText';
 import Navigation from '../components/Navigation';
 import './HomePage.css';
 
-const HomePage = () => {
+const HomePage = ({ openLoginModal }) => {
   return (
     <div className="home-page">
       <MarqueeText />
@@ -16,9 +16,8 @@ const HomePage = () => {
       <div className="home-content">
       <Navigation />
          <Banner />
-        {/* <LiveMatches /> */}
-        <VirtualGames />
-        <HomeCasino />
+        <VirtualGames openLoginModal={openLoginModal} />
+        <HomeCasino openLoginModal={openLoginModal} />
       </div>
     </div>
   );

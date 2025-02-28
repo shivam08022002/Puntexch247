@@ -68,7 +68,7 @@ const CasinoPage = ({ currentSportName = "casino" }) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleCasinoGamesClick = async (e, gameId, providerName) => {
+  const handleCasinoGamesClick = async (e, gameId, isLoggedIn, providerName) => {
     e.preventDefault();
     try {
         const accessToken = TokenService.getLocalAccessToken();

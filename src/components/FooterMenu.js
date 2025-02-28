@@ -1,15 +1,30 @@
 import React from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, Link, useNavigate } from 'react-router-dom';
 import { FaHome, FaDice, FaUser, FaClock } from 'react-icons/fa';
 import './FooterMenu.css';
 
 const FooterMenu = ({ openLoginModal, isLoggedIn, toggleProfileSidebar }) => {
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleCasinoClick = (e) => {
+    e.preventDefault();
+    if (!isLoggedIn) {
+      openLoginModal();
+    } else {
+      navigate('/casino');
+    }
+  };
 
   const menuItems = [
     { path: '/', label: 'Home', icon: <FaHome /> },
     { path: '/inplay', label: 'In Play', icon: <FaClock /> },
-    { path: '/casino', label: 'Casino', icon: <FaDice /> },
+    { 
+      path: '/casino', 
+      label: 'Casino', 
+      icon: <FaDice />,
+      onClick: handleCasinoClick 
+    },
     {
       path: '#',
       label: 'Profile',

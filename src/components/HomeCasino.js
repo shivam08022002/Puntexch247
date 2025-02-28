@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './HomeCasino.css';
 import axios from 'axios';
 import TokenService from '../services/token-service';
 
-
-const HomeCasino = () => {
+const HomeCasino = ({ openLoginModal }) => {
+  const navigate = useNavigate();
   const casinoData = [
     {
       name: "Evolution Lobby",
@@ -29,8 +29,17 @@ const HomeCasino = () => {
         img: "https://huidu-bucket.s3.ap-southeast-1.amazonaws.com/api/km/Game_KMQM_Blackjack_520x520.jpg"
       },
   ];  
-  const handleCasinoGamesClick = async (e, casinoId, providerName) => {
-    e.preventDefault();
+  const isLoggedIn = !!TokenService.getUser(); // Get login status
+
+  const handlePlayNow = (casino) => {
+    if (!isLoggedIn) {
+      openLoginModal();
+    } else {
+      handleCasinoGamesClick(casino.id, casino.name);
+    }
+  };
+
+  const handleCasinoGamesClick = async (casinoId, providerName) => {
     try {
         const accessToken = TokenService.getLocalAccessToken();
         console.log('accessToken', accessToken);
@@ -64,13 +73,23 @@ const HomeCasino = () => {
         console.error(`Error fetching game link for ${providerName}:`, err.response?.data || err.message);
     }
 };
+
+  const handleViewAll = (e) => {
+    e.preventDefault();
+    if (!isLoggedIn) {
+      openLoginModal();
+    } else {
+      navigate('/casino');
+    }
+  };
+
   return (
     <div className="home-casino-section">
       <div className="home-casino-header">
         <div className="header-left">
           <h2>🎰 Live Casino</h2>
         </div>
-        <Link to="/casino" className="view-all-button">View All</Link>
+        <button onClick={handleViewAll} className="view-all-button">View All</button>
       </div>
       <div className="home-casino-grid">
         {casinoData.map((casino, index) => (
@@ -88,7 +107,7 @@ const HomeCasino = () => {
                 <div className="home-casino-overlay">
                   <h3>{casino.name}</h3>
                   <p>{casino.game}</p>
-                  <button className="play-button" onClick={(e) => handleCasinoGamesClick(e, casino.id)}>Play Now</button>
+                  <button className="play-button" onClick={() => handlePlayNow(casino)}>Play Now</button>
                   </div>
               </div>
             </div>
