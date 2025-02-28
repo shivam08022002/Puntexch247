@@ -107,7 +107,7 @@ export default function UnityGame() {
         if (isLoaded) {
           const timer = setTimeout(() => {
             setIsLoading(false);
-          }, 2500); // 5000 ms = 5 seconds
+          }, 2000); // 5000 ms = 5 seconds
           const intervalId = setInterval(() => {
             fetchData(); // Fetch the new data (multiplier and crash state)
           }, 1000); // 1000 ms = 1 second
@@ -137,17 +137,7 @@ export default function UnityGame() {
             </div>
           )}
 
-          <Unity 
-          unityProvider={unityProvider} 
-          canvasRef={unityCanvasRef} 
-          devicePixelRatio={window.devicePixelRatio}
-          style={{
-            width: "100%",
-            height: "100%",
-            display: "block",
-            imageRendering: "crisp-edges",
-            objectFit: "cover", // Ensures game fills container without distortion
-          }}/>
+          <Unity unityProvider={unityProvider} canvasRef={unityCanvasRef} />
 
           {/* Display the current multiplier and plane crash state
           <p>Current Multiplier: {inputValue.toFixed(2)}</p>
