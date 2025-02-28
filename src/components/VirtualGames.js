@@ -13,7 +13,7 @@ const VirtualGames = () => {
   const handleAviatorClick = (e) => {
     console.log("aviator click");
     e.preventDefault();
-    navigate("/aviator");
+    navigate("/aviatorgame");
   };
 
   const handlePusparaniClick = (e) => {

@@ -109,7 +109,7 @@ const AppContent = () => {
         <Route path="/casino" element={<CasinoPage />} />
         <Route path="/match/:id" element={<MatchDetailsPage />} />
         <Route path="/change-password" element={<ChangePassword />} />
-        <Route path="/aviator" element={<Aviator />} />
+        <Route path="/aviatorgame" element={<Aviator />} />
         <Route path="/pushparani" element={<PushpaRani />} />
         <Route path="/login" element={<LoginPage closeLogin={closeLoginModal} onLoginSuccess={handleLoginSuccess}/>} />
       </Routes>
