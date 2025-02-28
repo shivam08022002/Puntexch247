@@ -764,9 +764,11 @@ input:checked+.pushpa-toggle-slider:before {
 /* Add disabled states */
 .pushpa-adjuster-btn:disabled,
 .pushpa-preset-btn:disabled,
+.pushpa-amount-adjuster:disabled, 
 .pushpa-amount-input:disabled {
-    opacity: 0.5;
+    opacity: 0.4;
     cursor: not-allowed;
+    /* border: none; */
 }
 
 .pushpa-unity-container {
