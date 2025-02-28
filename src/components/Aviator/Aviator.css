@@ -133,6 +133,8 @@
     height: 85%;
     padding: 0;
     margin: 0;
+    max-height: 350px;
+    max-width: 768px;
 }
 
 @keyframes scroll {
