@@ -71,7 +71,7 @@ export default function UnityGame() {
       const fetchData = async () => {
     try {
       const accessToken = localStorage.getItem("refreshToken");
-      const response = await fetch("https://ag.play-247.in/games/api/v1/virtual-games/aviatorGame", {
+      const response = await fetch("https://play-247.in/games/api/v1/virtual-games/aviatorGame", {
         method: "GET", // HTTP method (GET in this case)
         headers: {
             "Authorization": `Bearer ${accessToken}`, // Add JWT token as Bearer token
