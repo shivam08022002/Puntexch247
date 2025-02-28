@@ -10,6 +10,9 @@
     display: flex;
     flex-direction: column;
 }
+.game-window{
+    width: 100%;
+}
 
 .game-container {
     /* width: 100%; */
@@ -23,7 +26,6 @@
     /* margin-right: 20px; */
     margin-bottom: 0%;
 }
-
 
 .desktop-wrapper {
     background-color: #333;
@@ -109,11 +111,7 @@
     /* margin: rem; */
     border-radius: 0rem;
     height: 85%;
-        /* Fix for large height ,like in samsung fold */
-    max-height: 350px;
-    max-width: 768px;
 }
-
 
 @keyframes scroll {
     0% {
@@ -148,17 +146,15 @@
 
 .waiting-text {
     position: absolute;
-    /* left: 170px; */
-    top: 10px;
+    left: 170px;
+    top: 0px;
     /* bottom: 500px; */
     color: #a99d9d;
     font-size: 0.9rem;
     font-weight: 600;
     white-space: nowrap;
+    text-transform:lowercase;
     letter-spacing: 0.2px;
-    display: flex;
-    align-items:flex-end;
-    justify-self:flex-end;
 }
 
 .aviator-betting-tabs {
@@ -301,12 +297,12 @@
 }
 
 .bet-button.cancel {
-    background-color: #CB011A;
-    padding: 6px 12px;
-    border-radius: 1.5rem;
-    height: 55px;
+    background-color: #dc0000;
+    padding: 0.5rem;
+    border-radius: 0.75rem;
+    height: 70px;
     min-height: unset;
-    border: 2px solid rgba(185, 175, 167, 0.711);
+    border: 2px solid rgba(255, 112, 3, 0.612);
     width: auto;
     margin-top: 0;
     align-self: flex-end;
@@ -721,28 +717,24 @@ input:checked+.toggle-slider:before {
     /* Max height if you want to limit it */
     margin: 0 ;
     /* Center the canvas horizontally */
-    /* border-radius: 1rem; */
+    border-radius: 1.5rem;
+    border : 1px solid #535353;
     /* Add border-radius here for the container */
     overflow: hidden;
     /* Prevent the canvas from overflowing the rounded corners */
-    border-radius: 1.5rem;
-    border: .1px solid #535353; /* 4px black solid border */
+
 }
 
 
-
-
 .unity-container canvas {
-    width: 100%;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
     display: block;
     /* Ensure it fills the container */
     border-radius: inherit;
     /* Inherit border-radius from parent */
 }
 /* Loading screen with white background */
-
-
 .loading-screen {
     position: fixed;
     top: 0;
