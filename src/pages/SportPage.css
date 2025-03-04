@@ -9,18 +9,18 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgb(0, 0, 0);
 
 }
 .sport-header {
-  margin-top: 1px;
+  margin-top: 0px;
  
   border-radius: 10px 10px 0 0;
 }
 
 .sport-banner {
   width: 100%;
-  height: 160px;
+  height: 300px;
   border-radius: 15px;
   border: 0.5px solid #241d1d;
   margin: 2px;
@@ -80,7 +80,8 @@ button {
 .sport-section {
   width: 100%;
   height: 100%;
-  background: #ffffff;
+  color: rgb(0, 0, 0);
+  background: #e9e9e9;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 10px; /* Rounded corners for sport sections */
   
@@ -92,7 +93,7 @@ button {
 .sport-icon {
   font-size: 40px; /* Adjust icon size */
   margin-right: 15px;
-  color: white; /* Adjust color to match your banner */
+  color: rgb(255, 255, 255); /* Adjust color to match your banner */
 }
 
 .banner-icon {
@@ -130,6 +131,7 @@ button {
   }
 
   .sport-banner {
+    height: 200px;
     padding: 40px 20px;
     flex-direction: column;
     text-align: center;
@@ -155,12 +157,16 @@ button {
 
 @media (max-width: 480px) {
   .sport-page {
-    margin: 3px;
-    padding: 2px;
+    margin: 2px 0 0 0;
+    padding: 0;
+    padding-top: 3px;
+    /* margin-bottom: 2px; */
   }
 
   .sport-banner {
+    height: 200px;
     padding: 30px 15px;
+    border-radius: 10px;
   }
 
   .banner-text h1 {

@@ -1,5 +1,5 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';  // Add useEffect
+import { NavLink, useNavigate } from 'react-router-dom';  // Add useNavigate
 import {
   FaClock,
   FaBaseballBall,
@@ -16,13 +16,21 @@ import {
   FaGamepad,
 } from 'react-icons/fa';
 import './Navigation.css';
+import SportPage from '../pages/SportPage';
+import Banner from './Banner';
 
-const Navigation = () => {
+const Navigation = ({ isLoggedIn, logOut }) => {
+  const [selectedSport, setSelectedSport] = useState('inplay'); // Set default to 'inplay'
+
+  // Add useEffect to ensure inplay is selected on component mount
+  useEffect(() => {
+    setSelectedSport('inplay');
+  }, []);
 
   const sports = [
-    { name: 'Inplay', icon: <FaClock /> },
-    { name: 'Cricket', icon: <FaBaseballBall/> },
-    { name: 'Soccer', icon: <FaFutbol /> },
+    { name: 'Inplay',  icon: <FaClock /> },
+    { name: 'Cricket', icon: <FaBaseballBall /> },
+    { name: 'Football', icon: <FaFutbol /> },
     { name: 'Tennis', icon: <FaTableTennis /> },
     { name: 'Basketball', icon: <FaBasketballBall /> },
     { name: 'Volleyball', icon: <FaVolleyballBall /> },
@@ -35,7 +43,9 @@ const Navigation = () => {
     { name: 'Esports', icon: <FaGamepad /> },
   ];
 
-  const handleSportClick = (sport) => {
+  const handleSportClick = (e, sport) => {
+    e.preventDefault();
+    setSelectedSport(sport);
   };
 
   return (
@@ -45,13 +55,12 @@ const Navigation = () => {
           {sports.map((sport) => (
             <NavLink
               key={sport.name}
-              to={sport.name.toLowerCase() === 'inplay' 
-                ? '/inplay' 
-                : sport.name.toLowerCase() === 'casino'
-                ? '/casino'
-                : `/sports/${sport.name.toLowerCase().replace(/\s+/g, '-')}`}
-              className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
-              onClick={() => handleSportClick(sport.name.toLowerCase())}
+              className={({ isActive }) => 
+                (isActive && selectedSport === sport.name.toLowerCase()) 
+                  ? 'nav-link active' 
+                  : 'nav-link'
+              }
+              onClick={(e) => handleSportClick(e, sport.name.toLowerCase())}
             >
               <span className="nav-icon">{sport.icon}</span>
               <span className="nav-text">{sport.name}</span>
@@ -59,6 +68,8 @@ const Navigation = () => {
           ))}
         </div>
       </div>
+      {selectedSport === 'inplay' && <Banner />}
+      {selectedSport && <SportPage isLoggedIn={isLoggedIn} logOut={logOut} selectedSport={selectedSport} />}
     </nav>
   );
 };

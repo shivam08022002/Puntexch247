@@ -35,8 +35,6 @@ const Header = ({
     let intervalId;
     
     const fetchBalance = () => {
-      if (!isLoggedIn) return;
-      
       api.get('gamma/getBalance')
         .then(res => {
           setBalance(res.data);
@@ -53,7 +51,6 @@ const Header = ({
     };
 
     if (isLoggedIn) {
-      fetchBalance();
       intervalId = setInterval(fetchBalance, 1000);
     } else {
       setBalance(0);
@@ -186,10 +183,10 @@ const Header = ({
               </button>
             )}
           </div>
-          
-          <nav className="sidebar-nav">
+
+          {/* <nav className="sidebar-nav">
             <Navigation />
-          </nav>
+          </nav> */}
 
           {/* <div className="sidebar-footer">
             <Footer />

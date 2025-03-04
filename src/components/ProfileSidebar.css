@@ -35,11 +35,11 @@ button {
     border-left: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .profile-sidebar2 {
         width: 75%;
     }
-}
+} */
 
 .profile-sidebar2.open2 {
     transform: translateX(0);
@@ -231,7 +231,7 @@ button {
     background: linear-gradient(135deg, #ff6060 0%, #ff3333 100%);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .logout-btn2 {
         padding: 14px;
         font-size: 1rem;
