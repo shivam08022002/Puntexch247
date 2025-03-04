@@ -123,7 +123,7 @@ button {
     padding: 0;
     width: 100%;
     margin: auto;
-    height: 250px;
+    height: 200px;
   }
   .graph-section {
     padding: 0rem;
@@ -425,6 +425,9 @@ button {
     position: sticky;
     top: 0;
     z-index: 10;
+  }
+  .scrbrd-container{
+    height: 250px;
   }
   .tv-container{
     background: #000;

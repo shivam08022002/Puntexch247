@@ -4,6 +4,7 @@
   color: #ffffff;
   padding: 10px 10px; /* Matches Header padding */
   position: relative; /*
+
   top: 0;
   z-index: 100; /* Changed from -0 to ensure navigation stays on top */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); /* Same shadow as Header */
