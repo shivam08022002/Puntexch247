@@ -74,7 +74,7 @@ body, html {
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  margin: 8px 0;
+  margin: 5px 0;
   background: linear-gradient(90deg, #1e293b, #252f3f);
   border-radius: 12px;
   border: 1px solid rgba(99, 102, 241, 0.1);
@@ -188,7 +188,6 @@ body, html {
 
 @media (max-width: 768px) {
   .match-row {
-    /* flex-direction: column; */
     gap: 10px;
   }
 
@@ -201,7 +200,7 @@ body, html {
   }
 
   .odds-value {
-    min-width: 40px;
+    min-width: 30px;
     font-size: 13px;
     padding: 6px 12px;
   }
@@ -300,6 +299,7 @@ body, html {
   align-items: center;
   flex-direction: row;
   padding: 5px 0;
+  flex-direction: row;
 }
 .betting-site-img{
   gap: 2px;
@@ -307,9 +307,11 @@ body, html {
   padding-bottom: 0%;
 }
 .odds-grid {
-  flex: 1;
+  flex: 100%;
   width: 100%;
   max-width: none;
+  display: flex;
+  flex-direction: column;
   margin: 0;
   align-self: center;
   align-items: center;
@@ -318,7 +320,7 @@ body, html {
 .odds-header {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
   color: #9ca3af;
   font-size: 12px;
 }
@@ -334,7 +336,7 @@ body, html {
 /* New styles for odds pairs */
 .odds-pair {
   display: flex;
-  gap: 2px;
+  gap: 4px;
   flex: 1;
   max-width: 160px;
 }
@@ -468,19 +470,17 @@ body, html {
 }
 
 @media (max-width: 560px) {
-  .odds-group {
-    gap: 6px;
-  }
-
-  .odds-pair {
+   .odds-pair {
     gap: 1px;
     max-width: 120px;
   }
-
+  .odds-group {
+    gap: 5px;
+  }
   .odds-cell {
-    padding: 6px;
+    padding: 10px;
     font-size: 12px;
-    min-width: 35px;
+    min-width: 45px;
   }
   .match-details {
     padding: 3px 0;

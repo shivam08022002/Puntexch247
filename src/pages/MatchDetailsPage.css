@@ -6,13 +6,18 @@
   padding: 5px;
   padding-top: 5px;
   box-shadow:0 4px 6px rgba(0, 0, 0, 0.7);
-
 }
-.back-lay-header{
+.match-type-header{
   display: flex;
-  justify-content:end;
-  align-self: end;
-  gap: 2px;
+  justify-content:start;
+  align-items: center;
+  color: #333333;
+  font-weight: 500;
+}
+
+.back-header,.lay-header{
+color: #333333;
+font-weight: 500;
 }
 
 .match-details-content {
@@ -165,6 +170,7 @@ button {
 .match-time {
   display: flex;
   flex-direction: row;
+  align-self: start;
   gap: 10px;
   font-size: 12px;
   color: rgba(255, 255, 255, 0.8);
@@ -196,7 +202,7 @@ button {
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   margin-top: 1px;
-  padding: 0 15px;
+  /* padding: 0 15px; */
 }
 
 .market-content {
@@ -474,23 +480,48 @@ button {
   .live-tv-section.active {
     display: block;
   }
-
-  .table-header,
-  .team-row {
-    grid-template-columns: 120px 1fr 1fr;
+  .table-header{
+    display: grid;
+    grid-template-columns: 220px 1fr 1fr;
+    gap: 4px;
+    padding: 8px;
+    background: #f8f9fa;
+  }
+  .back-header,.lay-header{
+    /* grid-template-columns: 230px 1fr 1fr; */
+    font-weight: 500;
+    width: 55px;
+    height: 35px;
+  }
+  .team-row{
+    grid-template-columns: 220px 1fr 1fr;
     font-size: 12px;
     gap: 4px;
+
   }
 
   .odds-group {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 3px;
   }
 
   .odds-box {
-    height: 40px;
+    height: 45px;
+    display: flex;
   }
-
+  .odds-box.back {
+    background: rgb(114, 196, 255);
+    color: #000;
+    font-weight: 500;
+    width: 55px;
+  }
+  
+  .odds-box.lay {
+    background: rgb(255, 150, 150);
+    color: black;
+    font-weight: 500;
+    width: 55px;
+  }
   .price {
     font-size: 12px;
   }

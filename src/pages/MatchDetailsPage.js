@@ -130,7 +130,7 @@ const OddsMarket = ({ marketType, oddsList, minBet, maxBet, waitTime }) => {
 
         <div className="odds-table">
         <div className="table-header">
-        <div style={{color:'black'}}>Team</div>
+        <div className="match-type-header" >Team</div>
             <div className="back-header">
               <div>Back</div>
             </div>
@@ -187,7 +187,7 @@ const SessionMarket = ({ oddsList, minBet, maxBet, waitTime }) => {
         </div>
         <div className="odds-table">
           <div className="table-header">
-            <div style={{color:'black'}}>Session</div>
+            <div className="match-type-header">Session</div>
             <div className="back-header">
               <div>No</div>
             </div>
