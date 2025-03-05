@@ -69,7 +69,7 @@ const AppContent = () => {
     setIsSidebarOpen(!isSidebarOpen);
     setIsProfileSidebarOpen(false); // Ensure profile sidebar is closed
   };
-{/* <Navigation isLoggedIn={isLoggedIn} logOut={handleLogout} /> */}
+  
   const toggleProfileSidebar = () => {
     if (isLoggedIn) {
       setIsProfileSidebarOpen(!isProfileSidebarOpen);

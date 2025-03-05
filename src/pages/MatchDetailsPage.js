@@ -111,18 +111,14 @@ const OddsMarket = ({ marketType, oddsList, minBet, maxBet, waitTime }) => {
   return (
     <div className="market-section">
       <div className="market-header">
+        
         <div className="market-title">
+          
           {marketType}
           <span className="cash-out">CASH OUT</span>
         </div>
-        <div className="back-lay-header">
-            <div className="back-header">
-              <div>Back</div>
-            </div>
-            <div className="lay-header">
-              <div>Lay</div>
-            </div>
-          </div>
+
+       
         {/* <div className="market-actions">
           <button className="action-btn"><FaExchangeAlt /></button>
           <button className="action-btn"><FaChartLine /></button>
@@ -131,8 +127,17 @@ const OddsMarket = ({ marketType, oddsList, minBet, maxBet, waitTime }) => {
       </div>
 
       <div className="odds-table-container">
-        <div className="odds-table">
 
+        <div className="odds-table">
+        <div className="table-header">
+        <div style={{color:'black'}}>Team</div>
+            <div className="back-header">
+              <div>Back</div>
+            </div>
+            <div className="lay-header">
+              <div>Lay</div>
+            </div>
+        </div>
           {teams && teams.map((team, index) => (
             <div className="team-row">
               <div className="team-name">{team.name}</div>
@@ -182,7 +187,7 @@ const SessionMarket = ({ oddsList, minBet, maxBet, waitTime }) => {
         </div>
         <div className="odds-table">
           <div className="table-header">
-            <div>Session</div>
+            <div style={{color:'black'}}>Session</div>
             <div className="back-header">
               <div>No</div>
             </div>
@@ -414,7 +419,7 @@ const MatchDetailsPage = ({ isLoggedIn, logOut }) => {
           Live TV
         </button>
       </div>
-     <div className="match-details-container"> 
+     <div className="match-detail-container"> 
       {matchResponse && <div className="match-details-content" style = {{display:'flex',flexDirection:'column'}} >
         <div className={`match-details-main ${selectedTab === 'scoreboard' ? 'active' : ''}`}>
           
@@ -432,7 +437,7 @@ const MatchDetailsPage = ({ isLoggedIn, logOut }) => {
             <div className="tv-container">
               {/* <div className="live-tv-content"> */}
                   {videoLink ? (
-                    <iframe  style={{width:'100%',margin:'0 ',padding:'0'}}
+                    <iframe  style={{width:'100%', height:'100%',margin:'0 ',padding:'0'}}
                       src={videoLink}
                       title="Live Stream"
                       className="live-stream-frame"

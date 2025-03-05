@@ -3,7 +3,7 @@ import './MatchTable.css';
 import { useNavigate } from 'react-router-dom';
 import { FaTv, FaStar } from 'react-icons/fa'; // Add these imports
 
-const MatchTable = ({ sport, matches }) => {
+const MatchTable = ({ sport, matches, matchType, onMatchTypeChange }) => {
   const navigate = useNavigate();
 
   const handleMatchClick = (id) => {
@@ -23,8 +23,18 @@ const MatchTable = ({ sport, matches }) => {
           {/* <span className="match-count">{sport.count}</span> */}
         </div>
         <div className="match-filters">
-          <button className="filter-btn live active">Live</button>
-          <button className="filter-btn upcoming">Upcoming</button>
+          <button 
+            className={`filter-btn live ${matchType === 'LIVE' ? 'active' : ''}`}
+            onClick={() => onMatchTypeChange('LIVE')}
+          >
+            Live
+          </button>
+          <button 
+            className={`filter-btn upcoming ${matchType === 'UPCOMING' ? 'active' : ''}`}
+            onClick={() => onMatchTypeChange('UPCOMING')}
+          >
+            Upcoming
+          </button>
         </div>
       </div>
       <div className="matches-container">
@@ -36,18 +46,25 @@ const MatchTable = ({ sport, matches }) => {
             style={{ cursor: 'pointer' }}
           >
             <div className="match-info">
-              <div className="team-names">{match.name}</div>
-              <div className="match-details">
-                <div className="match-time">
-                  <div>
+              <div className="match-time">
+                <div>
                   <span className="date">{match.openDate}</span>
                   <span className="time">{match.time}</span>
-                  </div>
-                  <div className="match-actions">
-                    <FaTv className="action-icon" />
-                    <FaStar className="action-icon" />
-                  </div>
                 </div>
+              </div>
+              <div className="team-names">
+                <span className="match-name">{match.name}</span>
+                <div className="betting-sites">
+                  <img src="data:image/webp;base64,UklGRo4AAABXRUJQVlA4WAoAAAAQAAAACwAACwAAQUxQSBwAAAABDzD/ERFCTSMp0N1BiX+tbwkeIvofaSG/tnR8VlA4IEwAAABQAgCdASoMAAwAAgA0JbACdEcAfsBlgH6Vg2AA/ufP//nMf/ziH//nN/+3MehrkgXtiLxFx6KT/8Sp7/p+Q7+5/Fx3Uod/xkhECAAA" alt="betting-site-1" className="betting-site-img" />
+                  <img src="data:image/webp;base64,UklGRvYAAABXRUJQVlA4WAoAAAAQAAAACwAACwAAQUxQSEYAAAABcFXbtlJt3F1+oRBZqEASzQH/2sC1iDxNEBFCggSrSwApn9cgXEsWIOLINRjG0AFoPYvX7B7/cHZXhf4w+lce879Fq14BVlA4IIoAAAAQAwCdASoMAAwAAIAOJbACdLoApwDVFv2M9FUGd6foKAAA/nNGYn8+/Wo+Lf9YnOMtTjt1euzsoUP1/9L2oCvev/2v+a//GFVH/ZCdm894P/8fPedYYo//f/2KW8OP/7QR/3I3/3mB3+ssdRz7aN//ZjD/8Gv/joZ8ffrxQpUTAB/8ED/zfJ6wwAA=" alt="betting-site-2" className="betting-site-img" />
+                  <img src="data:image/webp;base64,UklGRlgBAABXRUJQVlA4WAoAAAAQAAAACwAACwAAQUxQSG8AAAABcFpt27I8uFV3d2hEDlWzW/wb0tmATPUFiIzgUN11CeeXGSJiAoDIfHfcFkFWLAJs2AchUqELAPEWiaiTKg0qiVYX23mo8oPB8NpTUgAAu9rn0gEEi0nBBKRaFKKtD1A8gixAaq0BgH/2/HwOFgAAVlA4IMIAAADwBACdASoMAAwAAIAOJbACdLoB+AFKA2ADaQP8BvAHAAfoB6MHsFeSR/9B2gAfOgAA6+2sKXfjZO/0HTqFDULX2nvz2dCG7/ayB+mfiJ7+9dPXe8vjZCBnoJ0GtntfxUNpOoRYXv/urGMMTKb5rEBU4zSPlVK+lnH7gBrsdy8HJ/+hsEL3tgc8Qcn//dm2BnnmzP+It2Hd+J33KH9e+YrCdVNqd1BXfvR8GsESPf/MBrJttr/4S/t77GLaaKyJJWJMAA==" alt="betting-site-3" className="betting-site-img" />
+                </div>
+                <div className="match-actions">
+                  <FaTv className="action-icon" />
+                  <FaStar className="action-icon" />
+                </div>
+              </div>
+              <div className="match-details">
                 <div className="odds-grid">
                   <div className="odds-header">
                     {/* <span>Back</span>

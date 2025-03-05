@@ -106,7 +106,7 @@ button {
   padding: 0px;
   margin-top: 5px;
   background: transparent;
-  border-radius: 0px;
+  border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.484);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   /* border: 1px solid rgba(255, 255, 255, 0.1); */
@@ -114,11 +114,15 @@ button {
 
 .sport-content:hover {
   transform: none;
+  border-radius: 10px;
+
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .sport-content::before {
   display: none;
+  border-radius: 10px;
+
 }
 
 .sport-content > * {
@@ -126,6 +130,27 @@ button {
   z-index: 1;
   border-radius: 8px;
 
+}
+
+.loading-message,
+.no-matches-message {
+  text-align: center;
+  padding: 0.8rem;
+  background: #E9E9E9;
+  color: #000000;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin: 0.8rem;
+}
+
+.no-matches-message h3 {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.no-matches-message p {
+  color: #666;
+  font-size: 0.9rem;
 }
 
 @media (max-width: 768px) {
