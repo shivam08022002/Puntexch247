@@ -65,11 +65,6 @@ const SportPage = ({ isLoggedIn, logOut, selectedSport }) => {
 
   // Define banners for each sport
   const banners = {
-    inplay: {
-      title: "In-Play Matches",
-      tagline: "Live Action Across All Sports",
-      bgImage: "https://t4.ftcdn.net/jpg/04/70/85/11/360_F_470851185_WnFs6FYmRvnDUMnzIy2yIJTVVqtoBKqY.jpg"
-    },
     cricket: {
       title: "Cricket Live",
       tagline: "Experience the Thrill of the Game",
