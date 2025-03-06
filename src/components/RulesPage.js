@@ -4,63 +4,69 @@ import Box from '@mui/material/Box';
 import './Rules.css';
 import { useEffect } from 'react';
 
+// Styled container with improved spacing & shadow
 const RulesContainer = styled(Box)(({ theme }) => ({
   backgroundColor: '#ffffff',
-  color: '#3a61a2',
-   padding: '12px',
+  color: '#2a4d8f',
+  padding: '20px',
   borderRadius: '12px',
-  boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.15)',
-  maxWidth: '70%',
-  margin: '20px auto',
+  boxShadow: '0px 6px 14px rgba(0, 0, 0, 0.1)',
+  maxWidth: '80%',
   width: '100%',
+  textAlign: 'start',
   fontFamily: '"Roboto", sans-serif',
+  lineHeight: '1.6',
+  [theme.breakpoints.down('sm')]: {
+    minWidth: '90%',
+    fontSize: '0.8em',
+    padding: '16px',
+  },
+}));
+
+// Note Container: Softer look, subtle shadow
+const NoteContainer = styled(Box)(({ theme }) => ({
+  backgroundColor: '#f1f5f9',
+  color: '#222',
+  fontWeight: '500',
+  padding: '16px',
+  borderRadius: '8px',
+  boxShadow: '0px 3px 8px rgba(0, 0, 0, 0.08)',
+  margin: '35px auto 10px',
+  width: '95%',
+  fontStyle: 'italic',
+  textAlign: 'center',
+  fontSize: '1.05em',
   [theme.breakpoints.down('sm')]: {
     minWidth: '90%',
     fontSize: '0.9em',
   },
 }));
 
-
-const NoteContainer = styled(Box)(({ theme }) => ({
-  backgroundColor: '#f9fafb',
-  color: '#333',
-  fontWeight: '500',
-  padding: '12px',
-  borderRadius: '8px',
-  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
-  margin: '30px auto',
-  width: '90%',
-  fontStyle: 'italic',
-  [theme.breakpoints.down('sm')]: {
-    minWidth: '90%',
-  },
-}));
-
-
+// Each Rule Row: Better spacing & separation
 const RuleRow = styled(Box)(({ theme }) => ({
   display: 'flex',
-  alignItems: 'center',
-  padding: '12px 0',
-  position: 'relative',
+  alignItems: 'flex-start',
+  padding: '14px 0',
   width: '100%',
-  borderBottom: '1px solid #e0e0e0',
+  borderBottom: '1px solid #dcdcdc',
   '&:last-child': {
     borderBottom: 'none',
   },
 }));
 
+// Serial Number: More defined
 const SerialNumber = styled('span')(({ theme }) => ({
-  marginRight: '15px',
   fontWeight: 'bold',
-  fontSize: '1.1em',
-  color: '#555',
+  fontSize: '1.2em',
+  color: '#374151',
+  minWidth: '30px',
 }));
 
+// Rule Text: Improved readability
 const RuleText = styled('span')(({ theme }) => ({
   flexGrow: 1,
-  fontSize: '1em',
-  lineHeight: '1.5',
-  color: '#444',
+  fontSize: '1.05em',
+  color: '#333',
 }));
 
 export default function RulesPage({ lang, onMainMenuClick }) {
@@ -106,9 +112,9 @@ export default function RulesPage({ lang, onMainMenuClick }) {
 
   const rules = lang === 'hi' ? rulesHindi : rulesEnglish;
   const note = lang === 'hi' ? noteHindi : noteEnglish;
- 
-    useEffect(() => {
-      window.scrollTo(0, 0);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
   }, []);
 
   return (
@@ -122,9 +128,6 @@ export default function RulesPage({ lang, onMainMenuClick }) {
       <NoteContainer>
         <label>{note}</label>
       </NoteContainer>
-      <div style={{ textAlign: 'center' }}>
-        {/* <button className="rules-page-main-menu-button" role='button' onClick={(e) => onMainMenuClick(e)}>MAIN MENU</button> */}
-      </div>
     </RulesContainer>
   );
 }

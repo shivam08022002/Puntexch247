@@ -119,7 +119,7 @@ const AppContent = () => {
             path="/sports/:sportName" 
             element={<SportPage isLoggedIn={isLoggedIn} logOut={handleLogout} />} 
           />
-          <Route path="/inplay" element={<InplayPage isLoggedIn={isLoggedIn} logOut={handleLogout} />} />
+          <Route path="/" element={<InplayPage isLoggedIn={isLoggedIn} logOut={handleLogout} />} />
           <Route path="/casino" element={<CasinoPage isLoggedIn={isLoggedIn} logOut={handleLogout} />} />
           <Route path="/match/:id" element={<MatchDetailsPage isLoggedIn={isLoggedIn} logOut={handleLogout} />} />
           <Route path="/change-password" element={<ChangePassword isLoggedIn={isLoggedIn} logOut={handleLogout} />} />

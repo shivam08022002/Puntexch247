@@ -12,6 +12,11 @@ export default function Settings({ role, isLoggedIn, logout }) {
         dispatch(clearMessage());
     }, []);
 
+    useEffect(() => {
+        window.scrollTo(0,0);
+    }, []);
+
+
     const { message } = useSelector(state => state.message);
     const dispatch = useDispatch();
     const [successful, setSuccessful] = useState(false);

@@ -1,8 +1,9 @@
 .rules-root {
     padding-bottom: 2%;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     z-index: 2222222;
+    margin-top:20px;
 }
 
 .rules-toggle-button-container{
@@ -11,7 +12,11 @@
 }
 
 .rules-page-container {
-    width: 100%;
+        width: 100%;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+    
 }
 
 .rules-page-main-menu-button {
@@ -45,7 +50,7 @@
 .rules-page-main-menu-button:hover {
     /* color: rgb(61, 79, 88); */
     /* background-color: rgb(255, 255, 255); */
-    color: #3a61a2;
+    color: #494499;
     background-color: #f8f8f8;
     border: 1px solid rgb(93, 108, 116);
     box-shadow: rgb(0 0 0 / 30%) 0px 4px 4px, rgb(231 238 236) 0px 0px 0px 3px;
@@ -73,9 +78,14 @@
         align-items: center;
         justify-content: center;
     }
-
+    .rules-page-container {
+        width: 100%;
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+    }
     .rules-toggle-button-container {
         text-align: center;
-        margin-top: 10px;
+        margin-top: 10px ;
     }
 }

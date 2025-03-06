@@ -1,33 +1,35 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react";
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { styled } from '@mui/material/styles';
 
 const CustomStyledToggleButton = styled(ToggleButton)(({ theme }) => ({
-  backgroundColor: '#64b267', // Default background for unselected
-  color: '#fff', // Default text color
-  width: '90px', // Fixed width for all buttons
-  height: '44px', // Fixed height for all buttons
-  borderRadius: '8px', // Rounded corners
-  //boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.2)', // Smooth, deeper shadow
-  boxShadow: '0 0 8px rgba(0, 0, 0, 0.5)',
-  //transition: 'box-shadow 0.3s ease-in-out', // Smooth transition for shadow changes
+  backgroundColor: '#f3f4f6', // Light background for unselected buttons
+  color: '#333', // Dark text for contrast
+  width: '100px', // Slightly increased width for better tap area
+  height: '45px',
+  fontWeight: 'bold',
+  borderRadius: '8px',
+  boxShadow: '0 3px 6px rgba(0, 0, 0, 0.15)',
   textTransform: 'none',
+  transition: 'all 0.3s ease-in-out',
+  
   '&.Mui-selected': {
-    backgroundColor: '#1c427c', // Background for selected button
-    color: '#fff', // Text color for selected button
+    backgroundColor: '#1f72cd', // Vibrant blue for selected button
+    color: '#fff', // White text for contrast
+    boxShadow: '0 4px 10px rgba(31, 114, 205, 0.4)', // Stronger shadow for emphasis
     '&:hover': {
-      backgroundColor: '#163760', // Hover effect for selected button
+      backgroundColor: '#185a9d', // Slightly darker blue on hover
     },
   },
+  
   '&:hover': {
-    backgroundColor: '#519d52', // Hover effect for unselected button
-    //boxShadow: '0px 12px 20px rgba(0, 0, 0, 0.3)', // More shadow on hover
-    boxShadow: '0 0 8px rgba(0, 0, 0, 0.5)',
+    backgroundColor: '#e0e7ff', // Subtle hover effect for unselected button
+    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
   },
+  
   '&:active': {
-    //boxShadow: '0px 6px 10px rgba(0, 0, 0, 0.4)', // Shadow on click (pressed effect)
-    boxShadow: '0 0 8px rgba(0, 0, 0, 0.5)',
+    boxShadow: '0 2px 6px rgba(0, 0, 0, 0.3)',
   },
 }));
 
@@ -35,11 +37,9 @@ export default function CustomToggleButton({ onLanguageChange }) {
   const [alignment, setAlignment] = useState('hindi');
 
   const handleChange = (event, newAlignment) => {
-    setAlignment(newAlignment);
-    if (newAlignment === 'english') {
-      onLanguageChange('en');
-    } else if (newAlignment === 'hindi') {
-      onLanguageChange('hi');
+    if (newAlignment !== null) {
+      setAlignment(newAlignment);
+      onLanguageChange(newAlignment === 'english' ? 'en' : 'hi');
     }
   };
 
@@ -52,7 +52,13 @@ export default function CustomToggleButton({ onLanguageChange }) {
       value={alignment}
       exclusive
       onChange={handleChange}
-      aria-label="Platform"
+      aria-label="language selection"
+      sx={{
+        backgroundColor: '#ffffff',
+        borderRadius: '8px',
+        padding: '2px',
+        boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
+      }}
     >
       <CustomStyledToggleButton value="hindi">
         हिन्दी
