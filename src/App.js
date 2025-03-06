@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
 import FooterMenu from './components/FooterMenu';
@@ -19,7 +19,8 @@ import Aviator from './components/Aviator/Aviator';
 import './App.css';
 import MarqueeText from './components/MarqueeText';
 import Navigation from './components/Navigation';
-
+import Settings from './components/Settings';
+import Rules from './components/Rules';
 
 
 
@@ -29,7 +30,11 @@ const AppContent = () => {
   const [isProfileSidebarOpen, setIsProfileSidebarOpen] = useState(false); // Profile Sidebar
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
+  // const HomePage = ({ openLoginModal }) => {
+
   const navigate = useNavigate();
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   // Check for user authentication on mount
   useEffect(() => {
@@ -98,7 +103,8 @@ const AppContent = () => {
         user={user}
       />
       <MarqueeText />
-      <Navigation isLoggedIn={isLoggedIn} logOut={handleLogout} />
+      {isHomePage && <Navigation isLoggedIn={isLoggedIn} logOut={handleLogout} />}
+      
       {/* Ensure only Profile Sidebar opens when Profile button is clicked */}
       {isLoggedIn && (
         <ProfileSidebar
@@ -106,19 +112,24 @@ const AppContent = () => {
           onClose={() => setIsProfileSidebarOpen(false)}
         />
       )}
-
-      <Routes>
-        <Route path="/" element={<HomePage openLoginModal={openLoginModal} />} />
-        <Route path="/sports/:sportName" element={<SportPage />} />
-        <Route path="/inplay" element={<InplayPage isLoggedIn={isLoggedIn} logOut={handleLogout} />} />
-        <Route path="/casino" element={<CasinoPage isLoggedIn={isLoggedIn} logOut={handleLogout} />} />
-        <Route path="/match/:id" element={<MatchDetailsPage isLoggedIn={isLoggedIn} logOut={handleLogout} />} />
-        <Route path="/change-password" element={<ChangePassword isLoggedIn={isLoggedIn} logOut={handleLogout} />} />
-        <Route path="/aviatorgame" element={<Aviator isLoggedIn={isLoggedIn} logOut={handleLogout} />} />
-        <Route path="/pushparani" element={<PushpaRani isLoggedIn={isLoggedIn} logOut={handleLogout} />} />
-        <Route path="/login" element={<LoginPage closeLogin={closeLoginModal} onLoginSuccess={handleLoginSuccess} />} />
-        {/* <Route path="/" element={<Navigation />} /> */}
-      </Routes>
+      <div className="main-content">
+        <Routes>
+          <Route path="/" element={<HomePage openLoginModal={openLoginModal} />} />
+          <Route 
+            path="/sports/:sportName" 
+            element={<SportPage isLoggedIn={isLoggedIn} logOut={handleLogout} />} 
+          />
+          <Route path="/inplay" element={<InplayPage isLoggedIn={isLoggedIn} logOut={handleLogout} />} />
+          <Route path="/casino" element={<CasinoPage isLoggedIn={isLoggedIn} logOut={handleLogout} />} />
+          <Route path="/match/:id" element={<MatchDetailsPage isLoggedIn={isLoggedIn} logOut={handleLogout} />} />
+          <Route path="/change-password" element={<ChangePassword isLoggedIn={isLoggedIn} logOut={handleLogout} />} />
+          <Route path="/aviatorgame" element={<Aviator isLoggedIn={isLoggedIn} logOut={handleLogout} />} />
+          <Route path="/pushparani" element={<PushpaRani isLoggedIn={isLoggedIn} logOut={handleLogout} />} />
+          <Route path="/login" element={<LoginPage closeLogin={closeLoginModal} onLoginSuccess={handleLoginSuccess} />} />
+          <Route path="/settings" element={<Settings isLoggedIn={isLoggedIn} logout={handleLogout} />} />
+          <Route path="/Rules" element={<Rules isLoggedIn={isLoggedIn} logout={handleLogout} />} />
+        </Routes>
+      </div>
 
       <Footer />
 
@@ -129,12 +140,15 @@ const AppContent = () => {
         toggleProfileSidebar={toggleProfileSidebar}
       />
     </div>
+    
   );
+  
 };
 
 // Main App component
 function App() {
   return (
+    
     <Provider store={store}>
       <Router>
         <AppContent />

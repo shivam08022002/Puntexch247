@@ -386,12 +386,22 @@ button {
   gap: 10px; */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 .tv-container{
   background: #000;
   height: 300px;
   padding: 0%;
   margin: 0%;
 }
+
+.no-stream-message{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+}
+
 .live-tv-header {
   background: linear-gradient(135deg, #1e3c72 0%, #30528c 100%);
   color: white;
