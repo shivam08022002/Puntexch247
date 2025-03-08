@@ -21,7 +21,10 @@ const Header = ({
   user
 }) => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
-    return localStorage.getItem('theme') === 'dark';
+    // Always set light theme as default unless explicitly set to dark
+    const savedTheme = localStorage.getItem('theme');
+    document.documentElement.setAttribute('data-theme', savedTheme === 'dark' ? 'dark' : 'light');
+    return savedTheme === 'dark';
   });
 
   const api = httpHelpers();
@@ -36,14 +39,6 @@ const Header = ({
     document.documentElement.setAttribute('data-theme', newTheme ? 'dark' : 'light');
     localStorage.setItem('theme', newTheme ? 'dark' : 'light');
   };
-
-  useEffect(() => {
-    if (isLoggedIn) {
-      setIsDarkMode(false);
-      document.documentElement.setAttribute('data-theme', 'light');
-      localStorage.setItem('theme', 'light');
-    }
-  }, [isLoggedIn]);
 
   useEffect(() => {
     let intervalId;
