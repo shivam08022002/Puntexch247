@@ -1,14 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { Unity, useUnityContext } from "react-unity-webgl";
+import PushpaLoading from "./loading-screen/PushpaLoading";
 import ResponseFile from "./ResponseFile";
 import "./PushpaRani.css";
 
 export default function UnityGame() {
     const { unityProvider, sendMessage, isLoaded } = useUnityContext({
       loaderUrl: "/pushpa-rani/Build/pushpaRani.loader.js",
-      dataUrl: "/pushpa-rani/Build/pushpaRani.data",
-      frameworkUrl: "/pushpa-rani/Build/pushpaRani.framework.js",
-      codeUrl: "/pushpa-rani/Build/pushpaRani.wasm",
+      dataUrl: "/pushpa-rani/Build/pushpaRani.data.unityweb",
+      frameworkUrl: "/pushpa-rani/Build/pushpaRani.framework.js.unityweb",
+      codeUrl: "/pushpa-rani/Build/pushpaRani.wasm.unityweb",
     });
 
       const unityCanvasRef = useRef(null);
@@ -142,8 +143,8 @@ export default function UnityGame() {
         <div className="pushpa-unity-container">
           {/* Show a white panel with animation while loading */}
           {isLoading && (
-            <div className="loading-screen">
-              <div className="spinner"></div> {/* Spinner inside the loading panel */}
+            <div>
+              <PushpaLoading/>
             </div>
           )}
 
