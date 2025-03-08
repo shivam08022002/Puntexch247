@@ -71,7 +71,7 @@ const RuleText = styled('span')(({ theme }) => ({
 
 export default function RulesPage({ lang, onMainMenuClick }) {
   const rulesHindi = [
-    'कृपया NICE 247 के नियमों को समझने के लिए यहां कुछ मिनट दें, और अपने अनुसार समझ लें |',
+    'कृपया  PUNTEXCH 247 के नियमों को समझने के लिए यहां कुछ मिनट दें, और अपने अनुसार समझ लें |',
     'लॉग इन करने के बाद अपना पासवर्ड बदल लें |',
     'प्रत्येक गेम के लिए 0  /- कॉइन्स चार्ज रहेगा |',
     'यदि आप मैच या सेशन का एक भी सौदा नहीं करते हो, ऐसे में आपसे 0/- कॉइन्स का चार्ज लिया जायेगा |',
@@ -91,7 +91,7 @@ export default function RulesPage({ lang, onMainMenuClick }) {
   const noteHindi = "नोट: सर्वर या वेबसाइट में किसी तरह की खराबी आने या बंद हो जाने पर केवल किए गए सौदे ही मान्य होंगे |ऐसी स्तिथि में किसी तरह का वाद-विवाद मान्य नहीं होगा |";
 
   const rulesEnglish = [
-    'Please give a few minutes to understand rules of NICE 247 here, as best as you can.',
+    'Please give a few minutes to understand rules of PUNTEXCH 247 here, as best as you can.',
     'Change your password after you log in.',
     'All the advance bets will be accepted after the toss.',
     'For every Match 0/- coins will be charged.',

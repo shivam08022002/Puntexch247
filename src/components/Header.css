@@ -15,7 +15,7 @@
   --header-color: #ffffff;
   --theme-icon-color: #ffffff;
   --user-name-color: #ffffff;
-  --user-id-color: #ffffff;
+  --user-id-color: #ffffff;  /* Changed from #201d1d to #ffffff */
   --balance-text-color: #ffffff;
   --menu-button-color: #ffffff;
   --logo-gradient: linear-gradient(45deg, #ffffff, #f0f0f0);
@@ -57,12 +57,15 @@ button{
   color: var(--user-id-color);
   opacity: 0.8;
 }
+.quick-menu-item{
+  gap: 10px;
+}
 
 .balance-container {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(253, 215, 0, 0.049);
+  /* background: rgba(253, 215, 0, 0.049); */
   padding: 8px 14px;
   border-radius: 6px;
   border: 1px solid rgba(253, 215, 0, 0.3);
@@ -835,27 +838,12 @@ button{
   color: var(--user-id-color);
   opacity: 0.8;
 }
-
-:root[data-theme="light"].sidebar-quick-menu {
-  padding: 25px 20px;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
-  border-bottom: 2px solid rgba(255, 255, 255, 0.397);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  position: relative;
+.quick-menu-item{
+  gap: 5px;
 }
+/* 
 :root[data-theme="light"].user-section-quick-menu{
 
   color: white;
   /* -webkit-text-fill-color: #f0f0f0; */
-}
-:root[data-theme="light"].sidebar-quick-menu::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
-}
+/* } */
