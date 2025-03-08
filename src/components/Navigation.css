@@ -70,7 +70,7 @@ button{
   background: var(--nav-hover-bg);
   color: #ffffff;
   box-shadow: 0 4px 12px rgba(255, 107, 0, 0.2);
-  transform: translateY(-1px);
+  transform: translateY(0px);
 }
 
 .nav-link.active {
