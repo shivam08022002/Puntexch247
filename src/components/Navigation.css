@@ -115,7 +115,7 @@ button{
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .navigation {
-    padding: 10px 15px;
+    padding: 10px 5px;
   }
 
   .nav-content {
@@ -140,7 +140,7 @@ button{
 @media (max-width: 480px) {
   .navigation {
     padding: 5px;
-    padding-top: 8px;
+    padding-top: 7px;
   }
   .navigation::-webkit-scrollbar {
     width: 2px;

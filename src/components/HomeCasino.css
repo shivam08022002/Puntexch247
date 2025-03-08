@@ -26,7 +26,7 @@ button{
   box-shadow: var(--casino-box-shadow);
   margin-top: 0px;
   padding: 10px;
-  margin: 5px 5px;
+  margin: 10px 5px;
 }
 
 .home-casino-header {
@@ -327,7 +327,14 @@ button{
   .home-casino-card {
     height: 100px;
   }
-
+  .home-casino-section {
+    background: var(--casino-bg);
+    border-radius: 10px;
+    box-shadow: var(--casino-box-shadow);
+    margin-top: 0px;
+    padding: 10px;
+    margin: 5px 5px;
+  }
   .home-casino-header {
     padding: 8px 10px;
   }

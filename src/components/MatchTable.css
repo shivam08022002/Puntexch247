@@ -45,9 +45,9 @@
   --odds-back-color: #ffffff;
   --odds-lay-bg: linear-gradient(135deg, #0ca7e9, #15a8e7);
   --odds-lay-color: #ffffff;
-  --bet-limits-color: #666666;
+  --bet-limits-color: #888888;
   --filter-btn-color: #666666;
-  --filter-btn-active-bg: #ef4444;
+  --filter-btn-active-bg: #12bcca;
   --filter-btn-active-color: #ffffff;
   --action-icon-color: #666666;
   --action-icon-hover-color: #f59e0b;
@@ -210,15 +210,15 @@ body, html {
 
 .match-filters {
   display: flex;
-  gap: 1px;
+  gap: 3px;
   background: rgba(255, 255, 255, 0.05);
   padding: 2px;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 .filter-btn {
   padding: 8px 16px;
-  border-radius: 6px;
+  border-radius: 2px;
   border: 1px solid var(--match-row-border);
   font-weight: 500;
   font-size: 13px;
@@ -228,25 +228,44 @@ body, html {
   color: var(--match-button-color);
 }
 
-[data-theme="light"] .filter-btn {
-  background: #ffffff;
-  border: 1px solid rgba(71, 85, 105, 0.1);
+[data-theme="light"] .filter-btn.upcoming {
+  /* background: #ffffff; */
+  color: #252323af;
+  border: 1px solid #25232398;
 }
-
-[data-theme="light"] .filter-btn:hover {
-  background: #f1f5f9;
-  border-color: rgba(71, 85, 105, 0.2);
+[data-theme="light"] .filter-btn.live {
+  /* background: #ffffff; */
+  color: #252323a1;
+  border: 1px solid #252323a5;
+}
+[data-theme="light"] .filter-btn.upcoming:hover {
+  /* background: #ffffff; */
+  color: #494545;
+  border: 1px solid rgba(18, 18, 19, 0.433);
+}
+[data-theme="light"] .filter-btn.live:hover {
+  /* background: #ffffff; */
+  color: #494545;
+  border: 1px solid rgba(25, 26, 27, 0.474);
 }
 
 [data-theme="light"] .filter-btn.active {
+  /* background: #f1f5f9; */
+  color:white;
+  border:#12bcca;
+  /* color:var(--filter-btn-active-bg); */
+  /* border-color: rgba(71, 85, 105, 0.2); */
+}
+
+/* [data-theme="light"] .filter-btn.active {
   background: #0f172a;
   color: #ffffff;
   border-color: #0f172a;
-}
+}  */
 
 .filter-btn.live {
   border-color: #ef4444;
-  color: #3b82f6;
+  color: #ef4444;
 }
 
 .filter-btn.upcoming {
@@ -257,6 +276,7 @@ body, html {
 .filter-btn.active {
   background: var(--filter-btn-active-bg);
   color: var(--filter-btn-active-color);
+  border:#ef4444;
 }
 
 .filter-btn:not(.active):hover {
@@ -358,7 +378,7 @@ body, html {
   }
 
   .match-filters {
-    gap: 1px;
+    gap: 3px;
   }
 
   .filter-btn {
