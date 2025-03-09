@@ -305,7 +305,7 @@ button{
     font-size: 1rem;
  }
   .header .auth-buttons {
-    gap: 8px;
+    gap: 2px;
   }
 
   .theme-toggle {
@@ -815,7 +815,7 @@ button{
 .user-section {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 3px;
   color: var(--user-id-color);
 }
 
