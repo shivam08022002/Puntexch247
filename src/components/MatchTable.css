@@ -394,7 +394,7 @@ body, html {
 /* New odds container styles */
 .match-details {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-direction: row;
   padding: 5px 0;
@@ -428,7 +428,7 @@ body, html {
   display: flex;
   gap: 12px; /* Increased gap between pairs */
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: nowrap;
 }
 

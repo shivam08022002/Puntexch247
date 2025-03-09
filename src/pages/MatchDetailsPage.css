@@ -328,7 +328,7 @@ button {
 }
 
 .odds-box {
-  height: 45px;
+  height: 55px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -337,6 +337,7 @@ button {
   cursor: pointer;
   transition: all 0.2s;
 }
+
 
 .odds-box.back {
   background: rgb(114, 196, 255);
@@ -364,7 +365,9 @@ button {
   font-weight: 500;
   color: #333;
 }
-
+.back-header{
+  height: 45px;
+}
 .amount {
   font-size: 11px;
   color: #666;
@@ -551,6 +554,7 @@ button {
     font-weight: 500;
     width: 55px;
     height: 35px;
+    justify-self: end;
   }
   .team-row{
     grid-template-columns: 220px 1fr 1fr;
@@ -560,13 +564,14 @@ button {
   }
 
   .odds-group {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 3px;
   }
 
   .odds-box {
     height: 45px;
     display: flex;
+    justify-self: end;
   }
   .odds-box.back {
     background: rgb(114, 196, 255);
@@ -588,6 +593,28 @@ button {
   .amount {
     font-size: 9px;
   }
+}
+@media screen and (max-width: 380px) {
+  
+.table-header{
+  display: grid;
+  grid-template-columns: 190px 1fr 1fr;
+  gap: 4px;
+  padding: 8px;
+  background: #f8f9fa;
+}
+.back-header,.lay-header{
+  /* grid-template-columns: 230px 1fr 1fr; */
+  font-weight: 500;
+  width: 55px;
+  height: 35px;
+  justify-self: end;
+}
+.team-row{
+  grid-template-columns: 190px 1fr 1fr;
+  font-size: 12px;
+  gap: 4px;
+}
 }
 
 /* Desktop Layout */
