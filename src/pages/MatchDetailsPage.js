@@ -18,7 +18,6 @@ import {
   DRAW_MATCH
 } from '../common/constants';
 
-// Odds Market
 const OddsMarket = ({ marketType, oddsList, minBet, maxBet, waitTime }) => {
   let teamA;
   let teamB;
@@ -118,12 +117,6 @@ const OddsMarket = ({ marketType, oddsList, minBet, maxBet, waitTime }) => {
           <span className="cash-out">CASH OUT</span>
         </div>
 
-       
-        {/* <div className="market-actions">
-          <button className="action-btn"><FaExchangeAlt /></button>
-          <button className="action-btn"><FaChartLine /></button>
-          <button className="action-btn"><FaLock /></button>
-        </div> */}
       </div>
 
       <div className="odds-table-container">
@@ -177,13 +170,7 @@ const SessionMarket = ({ oddsList, minBet, maxBet, waitTime }) => {
         <div className="market-header">
           <div className="market-title">
             Session Market
-            {/* <FaCheck className="check-icon" /> */}
           </div>
-          {/* <div className="market-actions">
-            <button className="action-btn"><FaExchangeAlt /></button>
-            <button className="action-btn"><FaChartLine /></button>
-            <button className="action-btn"><FaLock /></button>
-          </div> */}
         </div>
         <div className="odds-table">
           <div className="table-header">
@@ -223,11 +210,6 @@ const BallByBallMarket = () => {
         <FaCheck className="check-icon" />
       </div>
 
-      {/* <div className="market-actions">
-        <button className="action-btn"><FaExchangeAlt /></button>
-        <button className="action-btn"><FaChartLine /></button>
-        <button className="action-btn"><FaLock /></button>
-      </div> */}
     </div>
     <div className="odds-table">
       <div className="table-header">
