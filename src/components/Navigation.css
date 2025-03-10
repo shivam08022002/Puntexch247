@@ -129,7 +129,11 @@ button{
     padding: 8px 15px;
     font-size: 14px;
   }
-
+  .nav-links {
+    width: 100%;
+    margin-bottom: 10px;
+    gap: 15px;
+  }
   .nav-icon {
     font-size: 20px;
   }

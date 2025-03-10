@@ -94,7 +94,7 @@
 /* Responsive styles */
 @media (max-width: 768px) {
   .banner-container{
-    padding:10px 0 0 0;
+    padding:0px 0 0 0;
     /* padding-top: 10px; */
 
   }
@@ -133,19 +133,5 @@
     height: 130px;
   }
   
-  /* .banner-title {
-    font-size: 24px;
-  }
-
-  .banner-subtitle {
-    font-size: 16px;
-  }
-
-  .banner-date {
-    font-size: 12px;
-  } */
-
-  /* .banner-content {
-    padding: 1px;; */
   }
 
