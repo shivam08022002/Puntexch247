@@ -8,6 +8,7 @@ import SportPage from './pages/SportPage';
 import InplayPage from './pages/InplayPage';
 import CasinoPage from './pages/CasinoPage';
 import HomePage from './pages/HomePage';
+import LotteryPage from './pages/LotteryPage';
 import Footer from './components/Footer';
 import LoginPage from './pages/LoginPage';
 import MatchDetailsPage from './pages/MatchDetailsPage';
@@ -21,8 +22,6 @@ import MarqueeText from './components/MarqueeText';
 import Navigation from './components/Navigation';
 import Settings from './components/Settings';
 import Rules from './components/Rules';
-
-
 
 const AppContent = () => {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -60,7 +59,7 @@ const AppContent = () => {
     setUser(userData);
     setIsLoginOpen(false);
     setIsProfileSidebarOpen(false);
-    navigate('/');
+    navigate('/lottery'); // Navigate to lottery page after login
   };
 
   const openLoginModal = () => {
@@ -114,7 +113,8 @@ const AppContent = () => {
       )}
       <div className="main-content">
         <Routes>
-          <Route path="/" element={<HomePage openLoginModal={openLoginModal} />} />
+          <Route path="/" element={<HomePage openLoginModal={openLoginModal} isLoggedIn={isLoggedIn} />} />
+          <Route path="/lottery" element={<LotteryPage isLoggedIn={isLoggedIn} />} />
           <Route 
             path="/sports/:sportName" 
             element={<SportPage isLoggedIn={isLoggedIn} logOut={handleLogout} />} 

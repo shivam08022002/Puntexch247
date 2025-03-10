@@ -28,9 +28,10 @@ const LoginPage = ({ closeLogin, onLoginSuccess }) => {
         }
         return captcha;
     };
-        useEffect(() => {
-            window.scrollTo(0,0);
-        }, []);
+
+    useEffect(() => {
+        window.scrollTo(0,0);
+    }, []);
         
     const drawCaptcha = () => {
         const captcha = generateCaptchaText();
@@ -49,8 +50,6 @@ const LoginPage = ({ closeLogin, onLoginSuccess }) => {
 
     useEffect(() => {
         drawCaptcha();
-
-        // Cleanup function to handle component unmounting
         return () => {
             setIsLoading(false);
             setError(null);
@@ -58,10 +57,10 @@ const LoginPage = ({ closeLogin, onLoginSuccess }) => {
     }, []);
 
     const handleNavigateAndClose = (path, state = {}) => {
-        closeLogin(); // Close the login modal first
+        closeLogin();
         setTimeout(() => {
-            navigate(path, { state }); // Navigate after modal is closed
-        }, 300); // Add a small delay to ensure smooth transition
+            navigate(path, { state });
+        }, 300);
     };
 
     const fetchNotificationMessage = async () => {
@@ -87,7 +86,6 @@ const LoginPage = ({ closeLogin, onLoginSuccess }) => {
         setIsLoading(true);
 
         try {
-            // Validate captcha
             if (userInput !== captchaText) {
                 setIsValidCaptcha(false);
                 drawCaptcha();
@@ -96,7 +94,6 @@ const LoginPage = ({ closeLogin, onLoginSuccess }) => {
             }
             setIsValidCaptcha(true);
 
-            // Attempt login
             const data = await dispatch(login(username, password));
 
             switch (data.status) {
@@ -105,9 +102,8 @@ const LoginPage = ({ closeLogin, onLoginSuccess }) => {
                         handleNavigateAndClose("/changepassword");
                     } else if (data.data.accountStatus.includes("ACTIVE")) {
                         TokenService.setUser(data.data);
+                        onLoginSuccess(data.data); 
                         await fetchNotificationMessage();
-                        onLoginSuccess();
-                        window.location.reload(); // Call this after successful login
                     }
                     break;
 
@@ -131,7 +127,7 @@ const LoginPage = ({ closeLogin, onLoginSuccess }) => {
     const onChangeUserName = (e) => {
         const un = e.target.value;
         const firstTwo = un.substring(0, 2).toUpperCase();
-        const restOfString = un.substring(2);  // Get the rest of the string
+        const restOfString = un.substring(2);  
         const username = firstTwo + restOfString;
         setUsername(username);
     };

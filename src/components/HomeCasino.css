@@ -11,7 +11,7 @@
   --casino-bg: #cdbbbb;
   --casino-header-bg: #054146;
   --casino-box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  --casino-header-color: #FFD700;
+  --casino-header-color: #FFffff;
   --casino-button-bg: linear-gradient(135deg, #1e293b 0%, #334155 100%);
   --casino-button-color: #ffd700;
 }
@@ -26,7 +26,7 @@ button{
   box-shadow: var(--casino-box-shadow);
   margin-top: 0px;
   padding: 10px;
-  margin: 5px 5px;
+  margin: 10px 5px;
 }
 
 .home-casino-header {
@@ -327,7 +327,14 @@ button{
   .home-casino-card {
     height: 100px;
   }
-
+  .home-casino-section {
+    background: var(--casino-bg);
+    border-radius: 10px;
+    box-shadow: var(--casino-box-shadow);
+    margin-top: 0px;
+    padding: 10px;
+    margin: 5px 5px;
+  }
   .home-casino-header {
     padding: 8px 10px;
   }
