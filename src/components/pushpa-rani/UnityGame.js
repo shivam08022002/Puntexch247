@@ -4,7 +4,7 @@ import PushpaLoading from "./loading-screen/PushpaLoading";
 import ResponseFile from "./ResponseFile";
 import "./PushpaRani.css";
 
-export default function UnityGame() {
+export default function UnityGame({isPlaneCrashed,setIsPlaneCrashed,setLerp}) {
     const { unityProvider, sendMessage, isLoaded } = useUnityContext({
       loaderUrl: "/pushpa-rani/Build/pushpaRani.loader.js",
       dataUrl: "/pushpa-rani/Build/pushpaRani.data.unityweb",
@@ -15,7 +15,6 @@ export default function UnityGame() {
       const unityCanvasRef = useRef(null);
       const [inputValue, setInputValue] = useState(0); // Current multiplier value
       const [isTransitioning, setIsTransitioning] = useState(false); // Transition state
-      const [isPlaneCrashed, setIsPlaneCrashed] = useState(false); // To toggle crashing state
       const [isLoading, setIsLoading] = useState(true); // New loading state
       const previousTargetMultiplier = useRef(1); // Track previous target multiplier
       const inputValueRef = useRef(inputValue); // Track the latest inputValue (to avoid reset)
@@ -55,6 +54,7 @@ export default function UnityGame() {
 
           // Send the lerped value to Unity
           sendToUnity(lerpedValue);
+          setLerp(lerpedValue);
 
           // Continue animating if not yet finished
           if (progress < 1) {

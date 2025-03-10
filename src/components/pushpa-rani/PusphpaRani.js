@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import UnityGame from './UnityGame'
+import MultiplierHistory from './pushpa-multiplier-history/PushpaMultiplier'
 import './PushpaRani.css'
 import PropTypes from "prop-types"
 import { FaHistory } from "react-icons/fa";
@@ -50,10 +51,10 @@ const Multipliers = () => (
   </div>
 );
 
-const GameWindow = () => (
+const GameWindow = ({isPlaneCrashed,setIsPlaneCrashed,setLerp}) => (
   <div className="pushpa-game-window">
-    <Multipliers />
-    <UnityGame />
+    <MultiplierHistory isPlaneCrashed={isPlaneCrashed}/>
+    <UnityGame isPlaneCrashed={isPlaneCrashed} setIsPlaneCrashed={setIsPlaneCrashed} setLerp={setLerp}/>
   </div>
 );
 
@@ -343,11 +344,13 @@ const BettingHistory = () => {
 };
 
 const PushpaRani = () => {
+  const [isPlaneCrashed, setIsPlaneCrashed] = useState(false); // To toggle crashing state
+  const [lerp,setLerp] = useState(0);
   return (
     <div className="pushpa-desktop-wrapper">
       <div className="pushpa-app-container">
         <div className="pushpa-game-container">
-          <GameWindow />
+          <GameWindow isPlaneCrashed={isPlaneCrashed} setIsPlaneCrashed={setIsPlaneCrashed} setLerp={setLerp}/>
         </div>
         <div className="pushpa-betting-sections">
           <BettingSection title="Bet" />
