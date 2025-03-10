@@ -366,10 +366,8 @@ menu link{
 }
 
 :root[data-theme="light"] .home-icon-box {
-  background: #ffffff1a !important;
-  border: 1px solid rgba(234, 217, 217, 0.462);
-  color: rgb(255, 255, 255);
-
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(16, 11, 11, 0.3);
 }
 
 :root[data-theme="light"] .home-button:hover .home-icon-box,

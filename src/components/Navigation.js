@@ -34,6 +34,7 @@ const Navigation = ({ isLoggedIn, logOut }) => {
     { name: 'Tennis', icon: <FaTableTennis /> },
     { name: 'Basketball', icon: <FaBasketballBall /> },
     { name: 'Volleyball', icon: <FaVolleyballBall /> },
+    // { name: 'Casino', icon: <FaDice /> },
     { name: 'Horse Racing', icon: <FaHorse /> },
     { name: 'Ice Hockey', icon: <FaHockeyPuck /> },
     { name: 'Boxing', icon: <FaFistRaised /> },

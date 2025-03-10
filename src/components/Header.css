@@ -56,7 +56,6 @@ button{
   font-size: 12px;
   color: var(--user-id-color);
   opacity: 0.8;
-  font-weight: 600;
 }
 .quick-menu-item{
   gap: 10px;
