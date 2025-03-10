@@ -34,7 +34,7 @@
   --match-row-bg: #ffffff;
   --match-row-border: rgba(71, 85, 105, 0.1);
   --match-name-color: #1e293b;
-  --match-time-color: #64748b;
+  --match-time-color: #12bcca;
   --match-button-bg: #f1f5f9;
   --match-button-color: #1e293b;
   --match-row-hover-shadow: rgba(148, 163, 184, 0.1);
@@ -156,7 +156,7 @@ body, html {
   font-weight: 500;
 }
 
-.match-time {
+.match-time .date{
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -394,7 +394,7 @@ body, html {
 /* New odds container styles */
 .match-details {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-direction: row;
   padding: 5px 0;
@@ -428,7 +428,7 @@ body, html {
   display: flex;
   gap: 12px; /* Increased gap between pairs */
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: nowrap;
 }
 

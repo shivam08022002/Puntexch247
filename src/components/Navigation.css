@@ -21,6 +21,7 @@
   background: var(--nav-bg);
   color: var(--nav-color);
   padding: 10px 10px;
+  padding-bottom: 0px;
   position: relative;
   top: 0;
   z-index: 100;
@@ -116,6 +117,7 @@ button{
 @media (max-width: 768px) {
   .navigation {
     padding: 10px 5px;
+    padding-bottom:0px;
   }
 
   .nav-content {
@@ -141,6 +143,7 @@ button{
   .navigation {
     padding: 5px;
     padding-top: 7px;
+    padding-bottom: 0px;
   }
   .navigation::-webkit-scrollbar {
     width: 2px;
@@ -151,6 +154,7 @@ button{
 
   .nav-links {
     width: 100%;
+    margin-bottom: 7px;
     gap: 15px;
   }
 
