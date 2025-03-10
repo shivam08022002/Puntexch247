@@ -154,6 +154,7 @@ button{
 
   .nav-links {
     width: 100%;
+    margin-bottom: 7px;
     gap: 15px;
   }
 
