@@ -23,7 +23,6 @@ button {
     justify-content: center;
     padding: 80px;
     padding-top: 0px;
-    background: var(--home-bg);
     padding-bottom: 0%;
     font-family: 'Arial', sans-serif;
 }

@@ -20,13 +20,7 @@ const Header = ({
   onLoginSuccess,
   user
 }) => {
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    // Always set light theme as default unless explicitly set to dark
-    const savedTheme = localStorage.getItem('theme');
-    document.documentElement.setAttribute('data-theme', savedTheme === 'dark' ? 'dark' : 'light');
-    return savedTheme === 'dark';
-  });
-
+  const [isDarkMode, setIsDarkMode] = useState(true); 
   const api = httpHelpers();
   const [balance, setBalance] = useState(0);
   const [balanceError, setBalanceError] = useState(null);
@@ -34,11 +28,13 @@ const Header = ({
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
   const toggleTheme = () => {
-    const newTheme = !isDarkMode;
-    setIsDarkMode(newTheme);
-    document.documentElement.setAttribute('data-theme', newTheme ? 'dark' : 'light');
-    localStorage.setItem('theme', newTheme ? 'dark' : 'light');
+    setIsDarkMode((prev) => !prev);
+    document.documentElement.setAttribute('data-theme', isDarkMode ? 'light' : 'dark');
   };
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+  }, []);
 
   useEffect(() => {
     let intervalId;

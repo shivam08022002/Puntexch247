@@ -312,7 +312,7 @@ body, html {
   }
   .odds-pair {
     display: flex;
-    gap: 2px; /* Small gap between back/lay cells */
+    gap: 2px;
   }
   .sport-info h2 {
     font-size: 16px;

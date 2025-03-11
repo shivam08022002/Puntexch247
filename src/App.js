@@ -140,9 +140,7 @@ const AppContent = () => {
         toggleProfileSidebar={toggleProfileSidebar}
       />
     </div>
-    
   );
-  
 };
 
 // Main App component

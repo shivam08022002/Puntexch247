@@ -177,18 +177,15 @@ menu link{
   left: -5px;
   right: -5px;
   bottom: -5px;
-  color: #ffffffb3;
-  background: #0f1010; /* Dark background color from your navigation */
+  background: #484f4f; /* Dark background color from your navigation */
   border-radius: 50%;
-  border: 1px solid #af9999;
   /* box-shadow: -4.1px 5px 0 0 rgb(151, 173, 221); */
   z-index: -2;
 }
 
 .home-icon-box svg {
   font-size: 22px !important;
-  color: #ffffffb3;
-
+  color: #ffffff;
 }
 
 .home-button span {
@@ -346,9 +343,7 @@ menu link{
 :root[data-theme="light"] .menu-link {
   color: rgba(255, 255, 255, 0.9);
 }
-:root[data-theme="light"] .home-icon-box::after{
-  background: #464444;
-   }
+
 :root[data-theme="light"] .icon-box {
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -366,10 +361,8 @@ menu link{
 }
 
 :root[data-theme="light"] .home-icon-box {
-  background: #ffffff1a !important;
-  border: 1px solid rgba(234, 217, 217, 0.462);
-  color: rgb(255, 255, 255);
-
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(16, 11, 11, 0.3);
 }
 
 :root[data-theme="light"] .home-button:hover .home-icon-box,
