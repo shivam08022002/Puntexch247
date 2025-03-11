@@ -1,6 +1,7 @@
 // import { Widgets } from "@mui/icons-material";
 import React from "react";
 import ReactSpinnerTimer from "react-spinner-timer";
+import "./PlaceBet.css";
 
 function BetPlaceLoader({ time, laps, placeBetFunction }) {
     const handleChange = (lap) => {

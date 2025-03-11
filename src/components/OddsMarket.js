@@ -9,7 +9,7 @@ import {
     TOSS_ODDS
 } from '../common/constants';
 
-const OddsMarket = ({ onMarketPositionClick, marketType, oddsList, minBet, maxBet, waitTime }) => {
+export default function OddsMarket({ onMarketPositionClick, marketType, oddsList, minBet, maxBet, waitTime }) {
     let teamA;
     let teamB;
     let theDraw;
@@ -84,6 +84,19 @@ const OddsMarket = ({ onMarketPositionClick, marketType, oddsList, minBet, maxBe
             }
         ];
     }
+
+    // teams = [
+    //     {
+    //         name: "teamA.nation", backRate: 10, backStake: 20,
+    //         layRate: 5, layStake: 15, status: "ACTIVE",
+    //         marketId: "teamA.marketId", userPosition: 200
+    //     },
+    //     {
+    //         name: "teamB.nation", backRate: 100, backStake: 200,
+    //         layRate: 50, layStake: 150, status: "ACTIVE",
+    //         marketId: "teamB.marketId", userPosition: 400
+    //     }
+    // ];
 
     const handleMarketClick = (e, index, rate, type, marketId, nation) => {
         e.preventDefault();
@@ -165,5 +178,3 @@ const OddsMarket = ({ onMarketPositionClick, marketType, oddsList, minBet, maxBe
         </div>
     )
 };
-
-export default OddsMarket;

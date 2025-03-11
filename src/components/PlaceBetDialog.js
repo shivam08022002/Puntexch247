@@ -3,6 +3,7 @@ import { Box, Dialog, Slide } from "@mui/material";
 import Card from "@mui/material/Card";
 import Modal from "./Modal";
 import PlaceBetLoader from "./PlaceBetLoader";
+import "./PlaceBet.css";
 import {
     INVALID_BET_SUBMITTED,
     INVALID_BET_RATE_SUBMITTED,
@@ -41,10 +42,6 @@ export default function PlaceBetDialog({ yesValue, noValue,logout, showToastMess
     const [betInputValue, setBetInputValue] = useState("");
     const [successful, setSuccessful] = useState(false);
 
-    const backColor = "#7AA3F6";
-    const layColor = "#FFFFFF";
-    const posColor = "#F8F8F8";
-
     const bets = [
         preBetPreferenceData.pb1,
         preBetPreferenceData.pb2,
@@ -55,17 +52,6 @@ export default function PlaceBetDialog({ yesValue, noValue,logout, showToastMess
         preBetPreferenceData.pb7,
         preBetPreferenceData.pb8,
     ];
-
-    var betBackgroundColor;
-    const getBetBackgroundColorWithOpacity = () => {
-        if (backSelected) {
-            betBackgroundColor = backColor + "40";
-        } else {
-            betBackgroundColor = layColor + "40";
-        }
-        return "rgba(161, 62, 201, 0.9)"
-            ;
-    };
 
     const handleBetButtonClick = (bet, index) => {
         setBetInputValue(bet);
@@ -142,93 +128,104 @@ export default function PlaceBetDialog({ yesValue, noValue,logout, showToastMess
     }
 
     return (
-        <div>
-            {showLoader && <div className="overlay">
-                <div className="overlay-content">
-                    <PlaceBetLoader time={waitTime} laps={1} placeBetFunction={placeBet} /></div>
-            </div>}
+        <div className="full-width-dialog-container">
             <Dialog
                 open={true}
                 TransitionComponent={SlideTransition}
                 keepMounted
-                // onClose={cancelClick}
                 fullWidth
-                maxWidth="sm"
-                disableEscapeKeyDown
+                maxWidth={false}
+                disableEscapeKeyDown={false}
+                onClose={() => setShowPlaceBetDialog(false)}
                 sx={{
+                    width: '100vw',
+                    margin: 0,
+                    '& .MuiDialog-container': {
+                        width: '100%',
+                        margin: 0,
+                        padding: 0,
+                    },
                     '& .MuiDialog-paper': {
                         position: 'fixed',
                         bottom: 0,
                         margin: 0,
+                        width: '100%',
+                        maxWidth: '100%',
                         borderRadius: '16px 16px 0 0',
                         maxHeight: '80vh',
                         backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                        animation: 'slideUp 0.3s ease-out',
-                    },
-                    '@keyframes slideUp': {
-                        from: { transform: 'translateY(100%)' },
-
-                        to: { transform: 'translateY(0)' },
                     },
                 }}
             >
-                <Card variant="outlined" square={true}>
-                    <Box sx={{
-                        padding: "5px",
-                        backgroundColor: getBetBackgroundColorWithOpacity(),
-                    }}>
-                        <div className="game-bets">
-                            {bets.map((bet, indexBet) => (
-                                <button
-                                    className="bet-amount-button "
-                                    variant="contained"
-                                    color="inherit"
-                                    style={{ border: '1px solid black', boxShadow: '1px 1px black' }}
-                                    key={indexBet}
-                                    // style={{border: '1px solid black 0.5'}}
-                                    onClick={() => handleBetButtonClick(bet)}
-                                >
-                                    {bet}
-                                </button>
-                            ))}
+                {showLoader && (
+                    <div className="loader-container">
+                        <div className="loader-content">
+                            <PlaceBetLoader time={waitTime} laps={1} placeBetFunction={placeBet} />
                         </div>
+                    </div>
+                )}
+                
+                <Card variant="outlined" square={true} className={candidate === "back" ? "back-selected" : "lay-selected"}>
+                    <Box className="game-bets">
+                        {bets.map((bet, indexBet) => (
+                            <button
+                                className="bet-amount-button"
+                                variant="contained"
+                                color="inherit"
+                                key={indexBet}
+                                onClick={() => handleBetButtonClick(bet)}
+                            >
+                                {bet}
+                            </button>
+                        ))}
                     </Box>
                 </Card>
                 <Card variant="outlined" square={true}>
-                    <Box sx={{
-                        padding: "10px",
-                        backgroundColor: getBetBackgroundColorWithOpacity(),
-                    }}>
-                        <div style={{ marginBottom: "10px", padding: 'px', display: "flex", flexDirection: "row", background: "transparent" }}>
-                            <div className="bet-selected-market-state-header">
-                                <label>Market: </label>
+                    <Box className="bet-dialog-content">
+                        <div className="bet-market-info">
+                            <div className="bet-market-info-item">
+                                <div className="bet-selected-market-state-header">
+                                    <label>Market: </label>
+                                </div>
+                                <div className="bet-selected-market-state-value">
+                                    <label>{marketType}</label>
+                                </div>
                             </div>
-                            <div className="bet-selected-market-state-value">
-                                <label>{marketType}</label>
+                            
+                            <div className="bet-market-info-item">
+                                <div className="bet-selected-market-state-header">
+                                    <label>RATE: </label>
+                                </div>
+                                <div className="bet-selected-market-state-value">
+                                    <label>{candidateRate}</label>
+                                </div>
                             </div>
-                            <div className="bet-selected-market-state-header">
-                                <label>RATE: </label>
+                            
+                            <div className="bet-market-info-item">
+                                <div className="bet-selected-market-state-header">
+                                    <label>TEAM: </label>
+                                </div>
+                                <div className="bet-selected-market-state-value">
+                                    <label>{nation}</label>
+                                </div>
                             </div>
-                            <div className="bet-selected-market-state-value">
-                                <label>{candidateRate}</label>
-                            </div>
-                            <div className="bet-selected-market-state-header">
-                                <label>TEAM: </label>
-                            </div>
-                            <div className="bet-selected-market-state-value">
-                                <label>{nation}</label>
-                            </div>
-                            <div className="bet-selected-market-state-header">
-                                <label>BET: </label>
-                            </div>
-                            <div className="bet-selected-market-state-value">
-                                {candidate == "back" && <label>BACK</label>}
-                                {candidate == "lay" && <label>LAY</label>}
+                            
+                            <div className="bet-market-info-item">
+                                <div className="bet-selected-market-state-header">
+                                    <label>BET: </label>
+                                </div>
+                                <div className="bet-selected-market-state-value">
+                                    {candidate === "back" ? 
+                                        <span className="bet-type-back">BACK</span> : 
+                                        <span className="bet-type-lay">LAY</span>
+                                    }
+                                </div>
                             </div>
                         </div>
-                        <div>
+                        
+                        <div className="bet-input-container">
                             <input
-                                style={{ width: "100%", height: "50px", background: "#f1f1f1", border: "1px solid grey", fontSize: "1.2em" }}
+                                className="bet-input"
                                 variant="standard"
                                 type="number"
                                 value={betInputValue}
@@ -236,11 +233,8 @@ export default function PlaceBetDialog({ yesValue, noValue,logout, showToastMess
                                 placeholder="Enter Coins"
                             />
                         </div>
-                        <div style={{
-                            display: "flex",
-                            justifyContent: "space-between",
-                            marginTop: "10px"
-                        }}>
+                        
+                        <div className="bet-buttons-container">
                             <button className="bet-cancel-button" onClick={() => setShowPlaceBetDialog(false)}>
                                 CANCEL
                             </button>

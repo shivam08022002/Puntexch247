@@ -323,8 +323,8 @@ button {
 
 .odds-group {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
 }
 
 .odds-box {
@@ -435,6 +435,47 @@ button {
   cursor: pointer;
   margin-top: 15px;
 }
+
+@keyframes flash-yellow {
+
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+    background: lightyellow;
+  }
+
+  25%,
+  75% {
+    opacity: 0;
+    background: lightyellow;
+  }
+}
+
+@keyframes flash-blue {
+
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+    background: skyblue;
+  }
+
+  25%,
+  75% {
+    opacity: 0;
+    background: skyblue;
+  }
+}
+
+.flash-yellow {
+  animation: flash-yellow 0.4s;
+}
+
+.flash-blue {
+  animation: flash-blue 0.4s;
+}
+
 
 /* Mobile Styles */
 @media (max-width: 768px) {
@@ -564,8 +605,8 @@ button {
   }
 
   .odds-group {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
   }
 
   .odds-box {

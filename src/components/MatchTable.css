@@ -449,15 +449,19 @@ body, html {
 
 .odds-cell {
   flex: 1;
-  padding: 8px;
+  padding: 15px;
   border: none;
   border-radius: 4px;
   font-weight: 600;
   cursor: pointer;
   /* flex-direction: row; */
   transition: all 0.2s ease;
-  min-width: 45px; /* Slightly reduced to accommodate gaps */
-  font-size: 14px;
+  min-width: 80px; /* Slightly reduced to accommodate gaps */
+  font-size: 18px;
+  gap: 15px;
+}
+.odds-group {
+  gap: 15px;
 }
 
 .back-odds .odds-cell {
@@ -531,9 +535,9 @@ body, html {
   }
 
   .odds-cell {
-    padding: 6px;
-    font-size: 12px;
-    min-width: 40px;
+    padding: 10px;
+    font-size: 15px;
+    min-width: 60px;
   }
   .betting-site-img{
     padding: 5px;
@@ -577,11 +581,25 @@ body, html {
     gap: 8px;
   }
   .odds-cell {
-    padding: 6px;
-    font-size: 12px;
-    min-width: 47px;
+    padding: 9px;
+    font-size: 13px;
+    min-width: 52px;
   }
   .match-details {
     padding: 3px 0;
+  }
+}
+@media (max-width: 400px) {
+  .odds-cell {
+    padding: 8px;
+    font-size: 12px;
+    min-width: 49px;
+  }
+  .odds-group {
+    gap: 5px;
+  }
+  .odds-pair {
+    gap: 2px;
+    max-width: 120px;
   }
 }
