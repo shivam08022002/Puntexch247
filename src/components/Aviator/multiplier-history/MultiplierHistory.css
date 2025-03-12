@@ -1,0 +1,170 @@
+/* History Container */
+.history-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Top Row (Black Rounded Shape) */
+.multiplier-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fffbfb00 !important;
+    padding: 8px;
+    width: 100%;
+    border-radius: 25px;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0));
+    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0));
+}
+
+/* Black Background Shape Over Multipliers */
+.multiplier-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #161616;
+    border-radius: 25px;
+    z-index: 1;
+}
+
+/* Multipliers Positioned Below Black Rounded Shape */
+.multipliers {
+    display: flex;
+    gap: 6px;
+    flex-grow: 1;
+    white-space: nowrap;
+    justify-content: flex-start; /* Change from center to flex-start */
+    position: relative;
+    z-index: 2;
+    width: 100%; /* Ensure it takes the full width */
+    padding-left: 0px; /* Optional: Add some spacing from the left */
+}
+
+/* Style for Each Multiplier */
+.multiplier {
+    background-color: rgb(17, 17, 17);
+    padding: 2px 9px !important;
+    border-radius: 12px !important;
+    font-size: 13px !important;
+    font-weight: bold;
+    color: #6ad3ff;
+}
+
+.history-button {
+    position: absolute;
+    right: 10px;
+    top: 8px; /* Adjust this as needed */
+    background: rgb(81, 81, 81);
+    border: none;
+    border-radius: 15px;
+    width: 54px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    color: rgb(158, 156, 156);
+    z-index: 2; /* Keep it above everything */
+
+    outline: none; /* Removes focus outline */
+    user-select: none; /* Prevents text selection */
+    -webkit-tap-highlight-color: transparent; /* Removes tap/click effect on mobile */
+}
+
+.history-button:focus,
+.history-button:active {
+    outline: none;
+    box-shadow: none; /* Removes any click shadow effect */
+    background: rgb(81, 81, 81); /* Ensures no color change */
+}
+
+
+/* Full History Container */
+.full-history {
+    background-color: #222 !important; /* Background for the multipliers section */
+    padding: 0px !important;
+    border-radius: 25px !important;
+    width: 100% !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3) !important;
+    z-index: 3 !important;
+    overflow: hidden !important; /* Ensures proper rounding */
+}
+
+/* Full History Header */
+.full-history-header {
+    background-color: #202020 !important; /* Darker background */
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 6px 10px !important;
+    width: 100% !important;
+}
+
+/* Round History Title (Now Left-Aligned) */
+.full-history h3 {
+    color: white !important;
+    font-size: 16px !important;
+    font-weight: normal !important;
+    text-align: left !important; /* Left align */
+    margin: 5px !important; /* Remove default margin */
+    flex-grow: 1 !important;
+}
+
+/* Close Button */
+.close-button {
+    background: rgb(57, 57, 57) !important; /* Same grey background as history button */
+    border: none !important;
+    border-radius: 15px;
+    width: 54px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer !important;
+    font-size: 18px !important;
+    color: red !important; /* Keep close icon red */
+    z-index: 3;
+    gap: 4px; /* Space between icons if needed */
+}
+
+/* Close Button Hover */
+.close-button:hover {
+    background: rgb(107, 107, 107) !important; /* Slightly lighter grey on hover */
+    color: #ff4d4d !important; /* Lighter red */
+}
+
+/* Close Icon */
+.close-button svg {
+    color: red !important;
+    font-size: 16px;
+}
+
+/* History Grid (Multipliers Section) */
+.history-grid {
+    background-color: #2e2e2e !important; /* Background for multipliers */
+    padding: 10px !important;
+    display: flex !important;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(auto-fill, minmax(30px, 60px)) !important;
+
+    /* gap between numbers at tab  */
+    gap: 6px 5px !important;
+    justify-content: flex-start !important;
+}
+
+/* Keep the color styling */
+.blue { color: #3baef6 !important; }
+.purple { color: #9e41f6 !important; }
+.pink { color: #e73599 !important; }

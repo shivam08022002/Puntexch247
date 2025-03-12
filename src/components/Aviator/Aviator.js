@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import UnityGame from './UnityGame'
+import MultiplierHistory from './multiplier-history/MultiplierHistory';
 import './Aviator.css'
 import { FaHistory } from "react-icons/fa";
 // import { useEffect } from 'react';
@@ -35,10 +36,10 @@ const Multipliers = () => (
   </div>
 );
 
-const GameWindow = () => (
+const GameWindow = ({isPlaneCrashed,setIsPlaneCrashed,setLerp}) => (
   <div className="game-window">
-    <Multipliers />
-    <UnityGame />
+    <MultiplierHistory isPlaneCrashed={isPlaneCrashed}/>
+    <UnityGame isPlaneCrashed={isPlaneCrashed} setIsPlaneCrashed={setIsPlaneCrashed} setLerp={setLerp}/>
   </div>
 );
 
@@ -321,11 +322,13 @@ const BettingHistory = () => {
 };
 
 const Aviator = () => {
+  const [isPlaneCrashed, setIsPlaneCrashed] = useState(false); // To toggle crashing state
+  const [lerp,setLerp] = useState(0);
   return (
     <div className="desktop-wrapper">
       <div className="app-container">
         <div className="game-container">
-          <GameWindow />
+          <GameWindow isPlaneCrashed={isPlaneCrashed} setIsPlaneCrashed={setIsPlaneCrashed} setLerp={setLerp}/>
         </div>
         <div className="betting-sections">
           <BettingSection title="Bet" />
